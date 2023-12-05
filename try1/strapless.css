@@ -1,0 +1,28 @@
+.dropdown:hover .dropdown-menu {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    z-index: 1000;
+    min-width: 160px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+
+}
+
+    
+
+  @media only screen and (min-width: 768px) {
+    .w-logo {
+        width: 33% !important;
+    
+      }
+  }
+  .custom-toggler.navbar-toggler {
+    border-color: rgb(255, 255, 255);
+  } 
+  .custom-toggler:focus {
+    outline: 0cm !important;
+    box-shadow: none !important;
+  } 
+
