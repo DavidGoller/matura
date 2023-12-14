@@ -4,9 +4,10 @@
     left: 0;
     top: 100%;
     z-index: 1000;
-    min-width: 160px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
+    transform-origin: top;
+    transform: translate(0, -1%) scaleY(0);
+    transition: all .6s ease-in-out !important;
 
 }
 
@@ -73,6 +74,15 @@
 .dropdown-item.visible{
   opacity: 1;
 
+}
+.dropdown-menu{
+  overflow: hidden;
+  transform-origin: top;
+  transform: translate(0, -1%) scaleY(0);
+  transition: all .6s ease-in-out !important;
+}
+.dropdown-menu.visible{
+  transform: translate(0, 3%) scaleY(1);
 }
 
 
