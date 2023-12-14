@@ -1,11 +1,24 @@
 
 function wrapper(wrapperInt) {
-    /*const wrapper = document.getElementById("wrapper1");
-    let className = ' ' + wrapper.className + ' ';
+    /* When "show" do 1 else do 0*/
 
-    wrapper.className = ~className.indexOf(' good ') ?
-                         className.replace(' good ', ' ') :
-                         className + ' good';*/
+   const listW = document.getElementsByClassName("navbar-nav")[0].children;  
+   let wrappers;
+   i=0;
+    for (const element of listW) {
+ 
+        if(element.indexOf(dropdown)>0){
+
+            wrapper[i]=element;
+            i++;
+        };
+
+
+    }
+    console.log(wrapper);
+
+
+
     const fa = document.getElementById("wrapper" + wrapperInt).children[0];
 
     let className1 = ' ' + fa.className + ' ';
@@ -38,12 +51,51 @@ function wrapper(wrapperInt) {
 
 };
 function hoverDropdown(dropdownint) {
-    const dp = document.getElementById("dropdown" + dropdownint).children[1];
-    console.log(dp);
-    let dpn = '' + dp.className + '';
-    dp.className = ~dpn.indexOf(' visible') ?
-        dpn.replace(' visible', '') :
-        dpn + ' visible';
-        console.log(dp.className);
+    setTimeout(() => {
+        const dp = document.getElementById("dropdown" + dropdownint).children[1];
+
+        let dpn = '' + dp.className + '';
+
+        if (dpn.indexOf(' visible') < 0) {
+            dp.className = dpn + ' visible';
+        
+        for (let index = 0; index < dp.children.length; index++) {
+            
+            setTimeout(() => {
+
+                const element = dp.children[index];
+                let ec = '' + element.className + '';
+                if (ec.indexOf(' visible') < 0){
+                element.className = ec + ' visible';
+                }
+
+
+
+
+            }, 100);
+        }
+    }
+
+    }, 10);
+
+}
+function hoverOutDropdown(dropdownint) {
+    setTimeout(() => {
+        const dp = document.getElementById("dropdown" + dropdownint).children[1];
+
+        let dpn = '' + dp.className + '';
+        for (let index = 0; index < dp.children.length; index++) {
+
+                const element = dp.children[index];
+
+                let ec = '' + element.className + '';
+                element.className = ec.replace(' visible', '');
+
+        }
+    
+
+        dp.className = dpn.replace(' visible', '');
+    }, 10);
+
 }
 

@@ -34,13 +34,12 @@
                 </div>
 
                 <div class=" d-none d-md-flex col-md-9 navbar float-end justify-content-end py-2" style=" float:left">  
-                    <div class="nav-item px-2 py-3" >
-                        <div class="dropdown text-md-center " id="dropdown1"  onmouseenter="hoverDropdown(1)" onmouseleave="hoverDropdown(1)">
-                            <a class="btn  text-light" href="#" role="button" id="dropdownMenuLink"
-                                aria-haspopup="true" aria-expanded="true" >
-                            <h6>INFO</h6>
+                    <div class="nav-item px-2 py-3">
+                        <div class="dropdown text-md-center " id="dropdown1"  onmouseover="hoverDropdown(1)" onmouseleave="hoverOutDropdown(1)"  >
+                            <a class="btn  text-light" href="#" role="button">
+                            <h6 >INFO</h6>
                             </a>
-                            <div class="dropdown-menu  bg-primary" aria-labelledby="dropdownMenuLink">
+                            <div class="dropdown-menu  bg-primary dp">
                                 <a class="dropdown-item  bg-primary text-light" href="#">Action</a>
                                 <a class="dropdown-item  bg-primary text-light" href="#">Another action</a>
                                 <a class="dropdown-item  bg-primary text-light" href="#">Something else here</a>
@@ -109,6 +108,16 @@
                                 </li>
                                 <li class="nav-item dropdown" onclick="wrapper(1)">
                                   <a class="nav-link active dropdown-toggle" id="wrapper1"  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-animation="true">
+                                    <i class="fa-solid fa-plus arrow"></i> Dropdown 
+                                  </a>
+                                  <ul class="dropdown-menu bg-primary border-0" data-bs-animation="true" >
+                                    <li><a class="dropdown-item text-white" href="#">Action</a></li>
+                                    <li><a class="dropdown-item text-white" href="#">Another action</a></li>
+
+                                  </ul>
+                                </li>
+                                <li class="nav-item dropdown" onclick="wrapper(2)">
+                                  <a class="nav-link active dropdown-toggle" id="wrapper2"  href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-animation="true">
                                     <i class="fa-solid fa-plus arrow"></i> Dropdown 
                                   </a>
                                   <ul class="dropdown-menu bg-primary border-0" data-bs-animation="true" >

@@ -5,10 +5,6 @@
     top: 100%;
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transform-origin: top;
-    transform: translate(0, -1%) scaleY(0);
-    transition: all .6s ease-in-out !important;
-
 }
 
     
@@ -55,7 +51,6 @@
   transform-origin: top;
   transform: translate(0, -1%) scaleY(0);
   padding-top: 0cm !important;
-  width: 0;
   transition: all .6s ease-in-out !important;
   
 
@@ -75,14 +70,13 @@
   opacity: 1;
 
 }
-.dropdown-menu{
+ .dp{
   overflow: hidden;
-  transform-origin: top;
-  transform: translate(0, -1%) scaleY(0);
+  transform: translate(0, -15%) scaleY(0);
   transition: all .6s ease-in-out !important;
 }
-.dropdown-menu.visible{
-  transform: translate(0, 3%) scaleY(1);
+.dp.visible{
+  transform: translate(0, -13%) scale(1);
 }
 
 
