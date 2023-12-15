@@ -1,32 +1,45 @@
 
 function wrapper(wrapperInt) {
     /* When "show" do 1 else do 0*/
-
+    const dropdown = document.getElementById("wrapper" + wrapperInt).parentNode.children[1]
    const listW = document.getElementsByClassName("navbar-nav")[0].children;  
-   let wrappers;
-   i=0;
-    for (const element of listW) {
- 
-        if(element.indexOf(dropdown)>0){
+   const fa = document.getElementById("wrapper" + wrapperInt).children[0];
 
-            wrapper[i]=element;
-            i++;
+    for (const element of listW) {
+        
+        if(element.className.indexOf('dropdown')>0){
+
+            const child =element.children[0].children[0];
+            
+            if (child.className.indexOf('fa-minus')>0 && element.children[0].children[0]!=fa) {
+                let childN =child.className;
+                child.className = childN.replace('fa-minus','fa-plus');
+
+                let elementN = element.children[1].className;
+                
+                element.children[1].className = elementN.replace('sized','');
+                
+                const bullets = element.children[1].children;
+                for (const b of bullets) {
+                    const ba = b.children[0];
+                    ba.className = ba.className.replace('visible','');
+                }
+            }
         };
 
 
     }
-    console.log(wrapper);
+   
 
 
 
-    const fa = document.getElementById("wrapper" + wrapperInt).children[0];
-
+    
     let className1 = ' ' + fa.className + ' ';
     fa.className = ~className1.indexOf(' fa-plus ') ?
         className1.replace(' fa-plus ', ' fa-minus ') :
         className1.replace(' fa-minus ', ' fa-plus ');
-    const dropdown = document.getElementById("wrapper" + wrapperInt).parentNode.children[1];
-    const list = document.getElementById("wrapper" + wrapperInt).parentNode.children[1].children;
+    ;
+    const list = dropdown.children;
 
     let dc = ' ' + dropdown.className + ' ';
     dropdown.className = ~dc.indexOf('sized') ?
