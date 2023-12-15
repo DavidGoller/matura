@@ -26,7 +26,7 @@
 </head>
 
 <body>
-  <div class=" bg-black " >
+  <div class=" bg-black ">
     <div class="container-fluid py-3 px-4 text-md-start  bg-primary  ">
       <div class="row">
         <div class="col">
@@ -132,6 +132,7 @@
         </nav>
       </div>
     </div>
+
   </div>
 </body>
 
