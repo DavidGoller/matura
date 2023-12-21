@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>HeaderTamplate</title>
+  <title>HeaderTamplateBG</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,14 +23,19 @@
 
   <!--IDK TBH-->
   <script src="./rscr/js/script.js "></script>
+
+  <!--FavIcon-->
+  <link rel="icon" type="image/x-icon" href="./rscr/img/favlogo.png">
 </head>
 
 <body>
-  <div class=" bg-black ">
-    <div class="container-fluid py-3 px-4 text-md-start  bg-primary  ">
+  <div class=" position-relative" style=" overflow: hidden !important;">
+  <img src="./rscr/img/bg.png" class="position-absolute bg-opacity-25" style="width: 100% !important;height:100% !important;" />
+    <div class="container-fluid py-3 px-4 text-md-start   ">
+   
       <div class="row">
         <div class="col">
-          <img src="./rscr/img/Happy-Dogs logo.png" class="bg-primary img-thumbnail border-primary w-logo" alt="Happy-Dogs-Logo">
+          <img src="./rscr/img/Happy-Dogs logo.png" class="img-thumbnail position-relative bg-transparent border-0  w-logo" alt="Happy-Dogs-Logo">
         </div>
 
         <div class=" d-none d-md-flex col-md-9 navbar float-end justify-content-end py-2" style=" float:left">
@@ -131,6 +136,9 @@
 
         </nav>
       </div>
+      <div class=" row bg-black py-3 px-4 text-md-start  position-relative bg-transparent">
+            <h1 class="  text-center text-white display-1 fw-bold opacity-100" >HAPPY DOGS</h1>
+        </div>
     </div>
 
   </div>

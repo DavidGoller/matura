@@ -9,12 +9,12 @@
 
     
 
-  @media only screen and (min-width: 768px) {
-    .w-logo {
-        width: 33% !important;
-    
-      }
-  }
+@media only screen and (min-width: 768px) {
+  .w-logo {
+      width: 10rem !important;
+  
+    }
+}
   .custom-toggler.navbar-toggler {
     border-color: rgb(255, 255, 255);
   } 

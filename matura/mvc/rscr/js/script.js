@@ -1,35 +1,8 @@
 
 function wrapper(wrapperInt) {
-    /* When "show" do 1 else do 0*/
     const dropdown = document.getElementById("wrapper" + wrapperInt).parentNode.children[1]
-   const listW = document.getElementsByClassName("navbar-nav")[0].children;  
-   const fa = document.getElementById("wrapper" + wrapperInt).children[0];
-
-    for (const element of listW) {
-        
-        if(element.className.indexOf('dropdown')>0){
-
-            const child =element.children[0].children[0];
-            
-            if (child.className.indexOf('fa-minus')>0 && element.children[0].children[0]!=fa) {
-                let childN =child.className;
-                child.className = childN.replace('fa-minus','fa-plus');
-
-                let elementN = element.children[1].className;
-                
-                element.children[1].className = elementN.replace('sized','');
-                
-                const bullets = element.children[1].children;
-                for (const b of bullets) {
-                    const ba = b.children[0];
-                    ba.className = ba.className.replace('visible','');
-                }
-            }
-        };
-
-
-    }
-   
+    const fa = document.getElementById("wrapper" + wrapperInt).children[0];
+    reset(fa);
 
 
 
@@ -112,3 +85,29 @@ function hoverOutDropdown(dropdownint) {
 
 }
 
+function reset(fa){
+    const listW = document.getElementsByClassName("navbar-nav")[0].children;
+    for (const element of listW) {
+        
+        if(element.className.indexOf('dropdown')>0){
+
+            const child =element.children[0].children[0];
+            if (child.className.indexOf('fa-minus')>0 && (child!=fa||(element.children[1].classList.contains('show')&& element.children[1].children[0].children[0].classList.contains('visible')))) {
+                let childN =child.className;
+                child.className = childN.replace('fa-minus','fa-plus');
+
+                let elementN = element.children[1].className;
+                
+                element.children[1].className = elementN.replace('sized','');
+                
+                const bullets = element.children[1].children;
+                for (const b of bullets) {
+                    const ba = b.children[0];
+                    ba.className = ba.className.replace('visible','');
+                }
+            }
+        };
+
+
+    }
+}

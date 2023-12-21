@@ -6,6 +6,9 @@ class IndexController extends AbstractBase {
     public function home() {
 
     }
+    public function headerbg() {
+
+    }
 
 
 }
