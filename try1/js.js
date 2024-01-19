@@ -36,3 +36,45 @@ function wrapper(wrapperInt) {
     }, 10); 
 }
 };
+function createNewAddress(){
+    const div = document.getElementById("addressForm").children[0];
+    const newAddress = document.createElement("div");
+    newAddress.classList.add("bg-primary", "my-4");
+    newAddress.innerHTML = ''+
+    '<div class="row my-2 mx-5">'+
+    '<div class=" col-lg-2 col-0"></div>'+
+    '<div class="col-lg-4 col-12 ">'+
+  '    <label class="form-label h3 text-white" for="country">Country</label><br>'+
+  '    <input class="form-control h3" type="type" name="country" placeholder="country" required>'+
+  '  </div>'+
+  '  <div class="col-lg-1 col-0"></div>'+
+  '  <div class="col-lg-4 col-12">'+
+  '    <label class="form-label h3 text-white" for="province">Province</label><br>'+
+  '    <input class="form-control h3" type="type" name="province" placeholder="province" required>'+
+  '  </div>'+
+  '</div>'+
+  '<div class="row my-2 mx-5">'+
+  '  <div class="col-lg-2"></div>'+
+  '  <div class="col-lg-4 col-12 ">'+
+  '    <label class="form-label h3 text-white" for="city">City</label><br>'+
+  '    <input class="form-control h3" type="type" name="city" placeholder="city" required>'+
+  '  </div>'+
+  '  <div class="col-lg-1 col-0"></div>'+
+  '  <div class="col-lg-4 col ">'+
+  '    <label class="form-label h3 text-white" for="postcode">Postcode</label><br>'+
+  '    <input class="form-control h3" type="type" name="postcode" placeholder="00000" required>'+
+  '  </div>'+
+  '</div>'+
+  '<div class="row my-2 mx-5">'+
+  '  <div class="col-lg-2 col-0"></div>'+
+  '  <div class="col-lg-4 col-12">'+
+  '    <label class="form-label h3 text-white" for="address">Address</label><br>'+
+  '    <input class="form-control h3 col-6" type="type" name="address" placeholder="addresse" required>'+
+  '</div>'+
+  '  <input class="btn btn-danger btn-lg" type="button" value="delete" onclick="deleteChild(0)"/>'+
+
+  '</div>';
+    div.append(newAddress);
+    div.insertBefore(newAddress, div.children[3]);
+    console.log(newAddress);
+}

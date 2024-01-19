@@ -1,3 +1,8 @@
+:root{
+  --bs-primary:#926335;
+  --bs-secondary: #41260c;
+} 
+
 .dropdown:hover .dropdown-menu {
     display: block;
     position: absolute;
@@ -74,6 +79,8 @@
   opacity: 1;
 
 }
-
+label{
+  color: var(--bs-secondary) !important;
+}
 
 
