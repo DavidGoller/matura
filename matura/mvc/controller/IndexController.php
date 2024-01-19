@@ -9,6 +9,8 @@ class IndexController extends AbstractBase {
     public function headerbg() {
 
     }
-
+    public function login(){
+        
+    }
 
 }

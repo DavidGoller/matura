@@ -29,8 +29,8 @@
 </head>
 
 <body>
-  <div class=" position-relative" style=" overflow: hidden !important;">
-  <img src="./rscr/img/bg.png" class="position-absolute bg-opacity-25" style="width: 100% !important;height:100% !important;" />
+  <div class=" position-relative" style="overflow:hidden !important">
+  <img src="./rscr/img/bg.png" class="position-absolute bg-opacity-25" style="width: 100% !important; overflow:hidden !important;" />
     <div class="container-fluid py-3 px-4 text-md-start   ">
    
       <div class="row">
@@ -86,6 +86,14 @@
             <div class="dropdown ">
               <a class="btn  text-light" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
                 <h6>IN MEMORIAM</h6>
+              </a>
+            </div>
+          </div>
+          <div class="nav-item  px-0 mx-2 py-3">
+            <div class="dropdown ">
+              <a class="btn  text-light" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false" href="index.php?aktion=login">
+              
+                <h6>LOGIN</h6>
               </a>
             </div>
           </div>

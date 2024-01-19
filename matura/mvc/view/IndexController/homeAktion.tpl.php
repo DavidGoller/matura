@@ -23,17 +23,22 @@
 
   <!--IDK TBH-->
   <script src="./rscr/js/script.js "></script>
+  <!--FavIcon-->
+  <link rel="icon" type="image/x-icon" href="./rscr/img/favlogo.png">
+
 </head>
 
 <body>
   <div class=" bg-black ">
-    <div class="container-fluid py-3 px-4 text-md-start  bg-primary  ">
+    <div class="container-fluid py-3 px-4 text-lg-start  bg-primary  ">
       <div class="row">
         <div class="col">
+          <a href="index.php?aktion=headerbg">
           <img src="./rscr/img/Happy-Dogs logo.png" class="bg-primary img-thumbnail border-primary w-logo" alt="Happy-Dogs-Logo">
+          </a>
         </div>
 
-        <div class=" d-none d-md-flex col-md-9 navbar float-end justify-content-end py-2" style=" float:left">
+        <div class=" d-none d-lg-flex col-lg-9 navbar float-end justify-content-end py-2" style=" float:left">
           <div class="nav-item px-2 py-3">
             <div class="dropdown text-md-center " id="dropdown1" onmouseover="hoverDropdown(1)" onmouseleave="hoverOutDropdown(1)">
               <a class="btn  text-light" href="#" role="button">
@@ -47,11 +52,11 @@
             </div>
           </div>
           <div class="nav-item px-1 py-3">
-            <div class="dropdown ">
-              <a class="btn  text-light" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown " id="dropdown2" onmouseover="hoverDropdown(2)" onmouseleave="hoverOutDropdown(2)">
+              <a class="btn  text-light" href="#" role="button">
                 <h6>PROGRAMMI</h6>
               </a>
-              <div class="dropdown-menu  bg-primary" aria-labelledby="dropdownMenuLink">
+              <div class="dropdown-menu  bg-primary dp">
                 <a class="dropdown-item  bg-primary text-light" href="#">Action</a>
                 <a class="dropdown-item  bg-primary text-light" href="#">Another action</a>
                 <a class="dropdown-item  bg-primary text-light" href="#">Something else here</a>
@@ -85,7 +90,7 @@
             </div>
           </div>
         </div>
-        <nav class="navbar navbar-dark d-flex d-md-none col-8 justify-content-end">
+        <nav class="navbar navbar-dark d-flex d-lg-none col-8 justify-content-end">
 
           <button class="navbar-toggler custom-toggler active border-0" onclick="reset(0)" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
@@ -107,7 +112,7 @@
                     <i class="fa-solid fa-plus arrow"></i> Dropdown
                   </a>
                   <ul class="dropdown-menu bg-primary border-0" data-bs-animation="true">
-                    <li><a class="dropdown-item text-white" href="#">Action</a></li>
+                    <li><a class="dropdown-item text-white" href="https://google.it">Action</a></li>
                     <li><a class="dropdown-item text-white" href="#">Another action</a></li>
 
                   </ul>
