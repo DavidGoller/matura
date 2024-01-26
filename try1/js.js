@@ -77,7 +77,7 @@ function createNewAddress(){
   '  <div class="col-lg-1 col-0"></div>'+
   //'  <input class="btn btn-danger btn-lg col-2 my-3 mx-3"  type="button" value="delete" onclick="deleteChild('+x+')"/>'+
   '<div class="col-2 my-3 mx-3">'+
-  '<i id="delete" class="fa-solid fa-trash-can fa-3x" onclick="deleteChild('+x+')"></i>'+
+  '<i id="delete" class="fa-solid fa-trash-can fa-3x" onclick="deleteChild('+"'newAddress"+x+"'"+')"></i>'+
   '</div>'+
   '</div>';
     div.append(newAddress);
@@ -85,20 +85,24 @@ function createNewAddress(){
     x++;
 }
 
-function deleteChild(id){
-    const toDelete = document.getElementById('newAddress'+id);
-    
+function deleteChild(txt){
+    toDelete = document.getElementById(txt);
+    console.log(txt);
     const form = toDelete.parentElement;
     form.removeChild(toDelete);
 }
 
 function createFamily(){
+    const submitButton = document.getElementById("buttonSubmit");
+    submitButton.setAttribute("value", "Submit");
     const div = document.getElementById("addressForm").children[0];
     const outline = document.createElement("div");
+    outline.setAttribute("id","outline"+x)
     const ButtonOpes = document.getElementById("buttonOpes");
     
     const headerDiv = document.createElement("div");
     headerDiv.classList.add("row", "my-2", "mx-5");
+   
     const headerDivRow = document.createElement("div");
     headerDivRow.classList.add("col-lg-2", "col-0");
     const headerLabel = document.createElement("label");
@@ -145,8 +149,6 @@ function createFamily(){
     headerDiv3.classList.add("row", "my-2", "mx-5");
     const headerDiv3Row1 = document.createElement("div");
     headerDiv3Row1.classList.add("col-lg-2", "col-0");
-    //TODO Insert Phone
-    
 
     const headerDiv3Row2 = document.createElement("div");
     headerDiv3Row2.classList.add("col-lg-1", "col-4");
@@ -188,6 +190,23 @@ function createFamily(){
     headerDiv3Row3.append(label4);
     headerDiv3Row3.append(input4);
 
+    const headerDiv3Row4 = document.createElement("div");
+    headerDiv3Row4.classList.add("col-lg-1", "col-4");
+    
+
+    const headerDiv3Row5 = document.createElement("div");
+    headerDiv3Row5.classList.add("col-2", "my-3" ,"mx-3");
+    const deleteIcon = document.createElement("i");
+//'<i id="delete" class="fa-solid fa-trash-can fa-3x" onclick="deleteChild(newAddress'+x+')"></i>'+
+    deleteIcon.setAttribute("id", "delete");
+    deleteIcon.classList.add("fa-solid", "fa-trash-can", "fa-3x");
+    let y = x;
+    deleteIcon.onclick = function(){deleteChild("outline"+y);
+    submitOrSkip();
+    };
+      
+    
+    headerDiv3Row5.append(deleteIcon);
 
     headerDiv2Row2.append(label1);
     headerDiv2Row2.append(input1);
@@ -201,11 +220,93 @@ function createFamily(){
     headerDiv3.append(headerDiv3Row1);
     headerDiv3.append(headerDiv3Row2);
     headerDiv3.append(headerDiv3Row3);
-
+    headerDiv3.append(headerDiv3Row4);
+    headerDiv3.append(headerDiv3Row5);
     
     outline.append(headerDiv2);
     outline.append(headerDiv3);
     div.append(outline); 
     div.insertBefore(outline, ButtonOpes);
+    x++;
 }
 
+function createOPES(){
+    const submitButton = document.getElementById("buttonSubmit");
+    submitButton.setAttribute("value", "Submit");
+    const div = document.getElementById("addressForm").children[0];
+    const outline = document.createElement("div");
+    outline.setAttribute("id","outline"+x)
+    const ButtonSubmit = document.getElementById("submit");
+
+    const headerDiv = document.createElement("div");
+    headerDiv.classList.add("row", "my-2", "mx-5");
+
+    const headerDivRow = document.createElement("div");
+    headerDivRow.classList.add("col-lg-2", "col-0");
+    const headerLabel = document.createElement("label");
+    headerLabel.classList.add("form-label", "h3", "col")
+    headerLabel.innerHTML="OPES Credentials";
+
+    const headerDiv2 = document.createElement("div");
+    headerDiv2.classList.add("row", "my-2", "mx-5");
+    const headerDiv2Row1 = document.createElement("div");
+    headerDiv2Row1.classList.add("col-lg-2", "col-0");
+
+    const headerDiv2Row2 = document.createElement("div");
+    headerDiv2Row2.classList.add("col-lg-4", "col-12");
+    const label1 = document.createElement("label");
+    label1.classList.add("form-label", "h3");
+    label1.innerHTML="OPES Card Number";
+    const input1 = document.createElement("input");
+    input1.classList.add("form-control", "h3");
+    input1.setAttribute('type','type');
+    input1.setAttribute('name','opes');
+    input1.setAttribute('placeholder','xxxxxxxx');
+    input1.setAttribute('required', 'required');
+
+    const headerDiv2Row3 = document.createElement("div");
+    headerDiv2Row3.classList.add("col-lg-1", "col-4");
+    
+
+    const headerDiv2Row4 = document.createElement("div");
+    headerDiv2Row4.classList.add("col-2", "my-4" ,"mx-3");
+    const deleteIcon = document.createElement("i");
+//'<i id="delete" class="fa-solid fa-trash-can fa-3x" onclick="deleteChild(newAddress'+x+')"></i>'+
+    deleteIcon.setAttribute("id", "delete");
+    deleteIcon.classList.add("fa-solid", "fa-trash-can", "fa-3x");
+    let y = x;
+    deleteIcon.onclick = function(){
+        deleteChild("outline"+y);
+        document.getElementById("buttonOpesbutton").removeAttribute("disabled");
+        submitOrSkip();
+    };
+
+      
+    
+    headerDiv2Row4.append(deleteIcon);
+    headerDiv2Row2.append(label1);
+    headerDiv2Row2.append(input1);
+
+    headerDiv2.append(headerDiv2Row1);
+    headerDiv2.append(headerDiv2Row2);
+    headerDiv2.append(headerDiv2Row3);
+    headerDiv2.append(headerDiv2Row4);
+
+    headerDiv.append(headerDivRow);
+    headerDiv.append(headerLabel);
+    outline.append(headerDiv);
+
+    outline.append(headerDiv2);
+    div.append(outline); 
+    div.insertBefore(outline, ButtonSubmit);
+    x++;
+    document.getElementById("buttonOpesbutton").setAttribute("disabled","true");
+}
+
+function submitOrSkip(){
+    const div = document.getElementById("addressForm").children[0];
+    if(div.children.length <= 3){
+        const submitButton = document.getElementById("buttonSubmit");
+        submitButton.setAttribute("value", "Skip");
+    }
+}

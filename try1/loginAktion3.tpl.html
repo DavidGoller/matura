@@ -49,45 +49,30 @@
 
     <form action="./loginAktion3.tpl.html" method="post" id="addressForm">
         <div class="container align-items-center justify-content-center bg-white py-5">
-            <div>
-                <div class="row my-2 mx-5">
-                    <label class="form-label h3 col">WIP</label>
-                </div>
-                            <div class="row my-2 mx-5">
-                <div class=" col-lg-2 col-0"></div>
-                <label class="form-label h3 col">OPES credentials</label>
-            </div>
-            <div class="row my-2 mx-5">
-                <div class=" col-lg-2 col-0"></div>
-                <div class="col-lg-4 col-12 ">
-                    <label class="form-label h3">OPES Card Number</label><br>
-                    <input class="form-control h3" type="type" name="opes" placeholder="xxxxxxxx" required>
-                </div>
-            </div>
+            
 
-            <div id="buttonFamily" class="row my-2 mx-5">
-                <div class="col-lg-2 col-0"></div>
-                <div class="col-lg-4 col-12 ">
-                    <input class="btn btn-primary btn-lg" type="button" value="Add Family Member"
-                        onclick="createFamily()" />
+                <div id="buttonFamily" class="row my-2 mx-5">
+                    <div class="col-lg-2 col-0"></div>
+                    <div class="col-lg-4 col-12 ">
+                        <input class="btn btn-primary btn-lg" type="button" value="Add Family Member"
+                            onclick="createFamily()" />
+                    </div>
                 </div>
-            </div>
 
-            <div id="buttonOpes" class="row my-2 mx-5">
-                <div class="col-lg-2 col-0"></div>
-                <div class="col-lg-4 col-12 ">
-                    <input class="btn btn-primary btn-lg" type="button"  value="Add OPES credentials"
-                        onclick="createOPES()" />
+                <div id="buttonOpes" class="row my-2 mx-5">
+                    <div class="col-lg-2 col-0"></div>
+                    <div class="col-lg-4 col-12 ">
+                        <input class="btn btn-primary btn-lg" type="button" value="Add OPES credentials"
+                            onclick="createOPES()"id="buttonOpesbutton" />
 
+                    </div>
                 </div>
+                <div class="row my-3 mx-lg-0 mx-5" id="submit">
+                    <div class="col-lg-6 col-0 "></div>
+                    <div class="col px-lg-0">
+                        <input class="btn btn-primary btn-lg" type="submit" value="Skip" id="buttonSubmit" />
+                    </div>
             </div>
-            <div class="row my-3 mx-lg-0 mx-5">
-                <div class="col-lg-6 col-0 "></div>
-                <div class="col px-lg-0">
-                    <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
-                </div>
-            </div>
-        </div>
     </form>
 
 </body>
