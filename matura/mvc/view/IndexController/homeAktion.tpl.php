@@ -34,7 +34,7 @@
       <div class="row">
         <div class="col">
           <a href="index.php?aktion=headerbg">
-          <img src="./rscr/img/Happy-Dogs logo.png" class="bg-primary img-thumbnail border-primary w-logo" alt="Happy-Dogs-Logo">
+            <img src="./rscr/img/Happy-Dogs logo.png" class="bg-primary img-thumbnail border-primary w-logo" alt="Happy-Dogs-Logo">
           </a>
         </div>
 
@@ -85,7 +85,14 @@
           <div class="nav-item  px-0 mx-2 py-3">
             <div class="dropdown ">
               <a class="btn  text-light" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
-                <h6>IN MEMORIAM</h6>
+                <h6>IN MEMORIAM</h6><!--href="index.php?aktion=registration">-->
+              </a>
+            </div>
+          </div>
+          <div class="nav-item  px-0 mx-2 py-3 pb-4">
+            <div class="dropdown border-3 border-white border  ">
+              <a class="btn  text-light" href="index.php?aktion=registration" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                <h6 class="mb-0">LOGIN</h6>
               </a>
             </div>
           </div>

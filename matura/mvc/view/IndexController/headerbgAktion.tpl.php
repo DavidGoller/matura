@@ -89,11 +89,10 @@
               </a>
             </div>
           </div>
-          <div class="nav-item  px-0 mx-2 py-3">
-            <div class="dropdown ">
-              <a class="btn  text-light" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false" href="index.php?aktion=login">
-              
-                <h6>LOGIN</h6>
+          <div class="nav-item  px-0 mx-2 py-3 pb-4">
+            <div class="dropdown border-3 border-white border  ">
+              <a class="btn  text-light" href="index.php?aktion=registration" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                <h6 class="mb-0">LOGIN</h6>
               </a>
             </div>
           </div>

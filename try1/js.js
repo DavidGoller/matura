@@ -310,3 +310,8 @@ function submitOrSkip(){
         submitButton.setAttribute("value", "Skip");
     }
 }
+function toLogin(){
+    setTimeout(() => { 
+        window.location.replace("index.html");
+    }, 3000); 
+}
