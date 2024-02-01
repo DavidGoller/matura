@@ -3,7 +3,7 @@
 
 
 <head>
-<title>Register2</title>
+  <title>Register2</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,78 +30,72 @@
 </head>
 
 
-<body>
+<body class="bg-primary">
   <div class="container-fluid py-5 px-4 text-lg-start  bg-primary  ">
     <div class="progress overflow-visible">
-      <div class="progress-bar bg-white" role="progressbar" style="width:33%" aria-valuenow="66" aria-valuemin="0"
-        aria-valuemax="100"></div>
+      <div class="progress-bar bg-white" role="progressbar" style="width:33%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
       <div class="bg-primary overflow-visible ">
-        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important;  color:white" ></i>
+        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important;  color:white"></i>
       </div>
-      <div class="progress-bar bg-primary progress-bar-striped border border-light border-opacity-10 " role="progressbar" style="width:33%" aria-valuenow="33"
-        aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar bg-primary progress-bar-striped border border-light border-opacity-10 " role="progressbar" style="width:33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
       <div class="bg-primary overflow-visible ">
-        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important;  color:#41260c" ></i>
+        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important;  color:#41260c"></i>
       </div>
-      <div class="progress-bar bg-primary progress-bar-striped border border-light border-opacity-10 " role="progressbar" style="width:33%" aria-valuenow="33"
-        aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar bg-primary progress-bar-striped border border-light border-opacity-10 " role="progressbar" style="width:33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
       <div class="bg-primary overflow-visible ">
-        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important;  color:#41260c" ></i>
+        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important;  color:#41260c"></i>
       </div>
 
     </div>
   </div>
 
   <form action="index.php?aktion=registration3" method="post" id="addressForm">
-    <div class="container align-items-center justify-content-center bg-white py-5">
+    <div class="container align-items-center justify-content-center bg-white py-5 rounded-4">
       <div class="row my-2 mx-5">
         <div class=" col-lg-2 col-0"></div>
         <label class="form-label h3 col">Address</label>
-    </div>
+      </div>
       <div class="row my-2 mx-5">
         <div class=" col-lg-2 col-0"></div>
         <div class="col-lg-4 col-12 ">
           <label class="form-label h3">Country</label><br>
-          <input class="form-control h3" type="type"  name="country" placeholder="country" required>
+          <input class="form-control h3" type="type" name="country" required>
         </div>
         <div class="col-lg-1 col-0"></div>
         <div class="col-lg-4 col-12">
           <label class="form-label h3">Province</label><br>
-          <input class="form-control h3" type="type" name="province" placeholder="province" required>
+          <input class="form-control h3" type="type" name="province"  required>
         </div>
 
       </div>
       <div class="row my-2 mx-5">
         <div class="col-lg-2"></div>
         <div class="col-lg-4 col-12 ">
-          <label class="form-label h3" >City</label><br>
-          <input class="form-control h3" type="type" name="city" placeholder="city" required>
+          <label class="form-label h3">City</label><br>
+          <input class="form-control h3" type="type" name="city" required>
         </div>
         <div class="col-lg-1 col-0"></div>
         <div class="col-lg-4 col ">
-          <label class="form-label h3" >Postcode</label><br>
-          <input class="form-control h3" type="type" name="postcode" placeholder="00000" required>
+          <label class="form-label h3">Postcode</label><br>
+          <input class="form-control h3" type="type" name="postcode"  required>
         </div>
       </div>
       <div class="row my-2 mx-5">
         <div class="col-lg-2 col-0"></div>
         <div class="col-lg-4 col-12">
           <label class="form-label h3">Address</label><br>
-          <input class="form-control h3" type="type" name="address" placeholder="addresse" required>
+          <input class="form-control h3" type="type" name="address"  required>
         </div>
       </div>
-      <div  id="createButton" class="row my-2 mx-5">
+      <div id="createButton" class="row my-2 mx-5">
         <div class="col-lg-2 col-0"></div>
         <div class="col-lg-4 col-12 ">
-          <input class="btn btn-primary btn-lg" type="button" value="+" onclick="createNewAddress()"/>
-          
+          <input class="btn btn-primary btn-lg" type="button" value="+" onclick="createNewAddress()" />
+
         </div>
       </div>
-      <div class="row my-3 mx-lg-0 mx-5">
-        <div class="col-lg-6 col-0 "></div>
-        <div class="col px-lg-0">
-          <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
-        </div>
+      <div class="d-flex justify-content-center  col px-lg-0 w-100" id="submit">
+        <input class="btn btn-primary btn-lg" type="submit" value="Submit" id="buttonSubmit" />
       </div>
     </div>
   </form>

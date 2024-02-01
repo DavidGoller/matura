@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title>Register1</title>
+  <title>Register1</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,67 +28,76 @@
   <link rel="icon" type="image/x-icon" href="./rscr/img/favlogo.png">
 </head>
 
-<body>
+<body class="bg-primary">
   <div class="container-fluid py-5 px-4 text-lg-start  bg-primary  ">
     <div class="progress overflow-visible">
-      <div class="progress-bar bg-white" role="progressbar" style="width: 0%" aria-valuenow="66" aria-valuemin="0"
-        aria-valuemax="100"></div>
+      <div class="progress-bar bg-white" role="progressbar" style="width: 0%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
       <div class="bg-primary overflow-visible ">
-        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important; margin-left: -1rem;  color:white" ></i>
+        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important; margin-left: -1rem;  color:white"></i>
         <!--<img class="" src="progress.png"
           style="height: 300% !important; margin-top: -2rem; margin-left: -1.5rem; margin-right: -1.3rem;">-->
       </div>
-      <div class="progress-bar bg-primary progress-bar-striped border border-light border-opacity-10" role="progressbar" style="width:33%" aria-valuenow="33"
-        aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar bg-primary progress-bar-striped border border-light border-opacity-10" role="progressbar" style="width:33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
       <div class="bg-primary overflow-visible ">
         <!--<img class="" src="checkpoints.png" style="height: 300% !important; margin-top: -2rem; margin-left: -1.5rem;">-->
-        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important;  color:#41260c" ></i>
+        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important;  color:#41260c"></i>
       </div>
-      <div class="progress-bar bg-primary progress-bar-striped border border-light border-opacity-10" role="progressbar" style="width:33%" aria-valuenow="33"
-        aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar bg-primary progress-bar-striped border border-light border-opacity-10" role="progressbar" style="width:33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
       <div class="bg-primary overflow-visible ">
-        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important; color:#41260c" ></i>
+        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important; color:#41260c"></i>
       </div>
-      <div class="progress-bar bg-primary progress-bar-striped border border-light border-opacity-10 " role="progressbar" style="width:33%" aria-valuenow="33"
-        aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar bg-primary progress-bar-striped border border-light border-opacity-10 " role="progressbar" style="width:33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
       <div class="bg-primary overflow-visible ">
-        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important;  color:#41260c" ></i>
+        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important;  color:#41260c"></i>
       </div>
 
     </div>
   </div>
 
   <form action="index.php?aktion=registration" method="post">
-    <div class="container align-items-center justify-content-center bg-white py-5">
+
+    <div class="container align-items-center justify-content-center bg-white py-5 rounded-4">
+      <?php
+      if ($warning != "") {
+      ?>
+        <div class="d-flex justify-content-center  col px-lg-0 w-100">
+          <div class="alert alert-warning" role="alert">
+            <?= $warning ?>
+          </div>
+        </div>
+
+      <?php
+      }
+      ?>
       <div class="row my-2 mx-5">
         <div class=" col-lg-2 col-0"></div>
         <div class="col-lg-4 col-12 ">
           <label class="form-label h3 " for="firstname">Firstname</label><br>
-          <input class="form-control h3" type="type" id="firstname" name="firstname" placeholder="firstname" required>
+          <input class="form-control h3" type="type" id="firstname" name="firstname" required>
         </div>
         <div class="col-lg-1 col-0"></div>
         <div class="col-lg-4 col-12">
           <label class="form-label h3" for="lastname">Lastname</label><br>
-          <input class="form-control h3" type="type" id="lastname" name="lastname" placeholder="lastname" required>
+          <input class="form-control h3" type="type" id="lastname" name="lastname" required>
         </div>
       </div>
       <div class="row my-2 mx-5">
         <div class=" col-lg-2 col-0"></div>
         <div class="col-lg-9">
           <label class="form-label h3" for="codicefiscale">Codice fiscale</label><br>
-          <input class="form-control h3" type="type" id="codicefiscale" name="codicefiscale" placeholder="codicefiscale" required>
+          <input class="form-control h3" type="type" id="codicefiscale" name="codicefiscale" required>
         </div>
       </div>
       <div class="row my-2 mx-5">
         <div class="col-lg-2"></div>
         <div class="col-lg-4 col-12 ">
           <label class="form-label h3" for="email">E-mail</label><br>
-          <input class="form-control h3" type="type" id="email" name="email" placeholder="example@happydogs.it" required>
+          <input class="form-control h3" type="type" id="email" name="email" required>
         </div>
         <div class="col-lg-1 col-0"></div>
         <div class="col-lg-1 col-4">
           <label for="prefix" class="form-label h3">Prefix</label>
-          <input class="form-control h3" list="prefixList" id="prefix" placeholder="+" required>
+          <input class="form-control h3" list="prefixList" id="prefix" required>
           <datalist id="prefixList">
             <option value="+39">
             <option value="+49">
@@ -98,30 +107,28 @@
         </div>
         <div class="col-lg-3 col ">
           <label class="form-label h3" for="phone">Phone</label><br>
-          <input class="form-control h3" type="type" id="phone"name="phone" placeholder="1234567891" required>
+          <input class="form-control h3" type="type" id="phone" name="phone" required>
         </div>
       </div>
       <div class="row my-2 mx-5">
         <div class="col-lg-2 col-0"></div>
         <div class="col-lg-4 col-12">
           <label class="form-label h3" for="password">Password</label><br>
-          <input class="form-control h3" type="password" id="password" name="password" placeholder="password" required>
+          <input class="form-control h3" type="password" id="password" name="password" required>
         </div>
       </div>
       <div class="row my-2 mx-5">
         <div class="col-lg-2 col-0"></div>
         <div class="col-lg-4 col-12 ">
           <label class="form-label h3" for="confirmpassword">Confirm Password</label><br>
-          <input class="form-control h3" type="password" id="confirmpassword" name="confirmpassword" placeholder="password" required>
-          
+          <input class="form-control h3" type="password" id="confirmpassword" name="confirmpassword" required>
+
         </div>
       </div>
-      <div class="row my-3 mx-lg-0 mx-5">
-        <div class="col-lg-6 col-0 "></div>
-        <div class="col px-lg-0">
-          <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
-        </div>
+      <div class="d-flex justify-content-center  col px-lg-0 w-100">
+        <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
       </div>
+    </div>
     </div>
   </form>
 

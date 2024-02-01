@@ -30,7 +30,7 @@
 </head>
 
 
-<body onload="toLogin()">
+<body onload="toLogin()" class="bg-primary">
     <div class="container-fluid py-5 px-4 text-lg-start  bg-primary  ">
         <div class="progress overflow-visible">
             <div class="progress-bar bg-white" role="progressbar" style="width:100%" aria-valuenow="100" aria-valuemin="0"
@@ -44,7 +44,7 @@
         </div>
     </div>
 
-        <div class="container align-items-center justify-content-center bg-white py-5" >
+        <div class="container align-items-center justify-content-center bg-white py-5 rounded-4" >
             <div class="row">
                 <div class="col-lg-4 col-0"></div>
                 <div class="col-lg-4 col-12 justify-content-center py-5 bg-primary text-center rounded-3">

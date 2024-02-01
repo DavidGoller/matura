@@ -16,13 +16,19 @@ class IndexController extends AbstractBase
 
     public function registration()
     {
+        $warning = "";
         if ($_POST) {
             $password1 = $_POST['password'];
             $password2 = $_POST['confirmpassword'];
             if ($password1 == $password2) {
                 redirect("index.php?aktion=registration2");
             }
+            else{
+                $warning = "Are u dumb?";
+            }
+
         }
+        $this->addContext("warning",$warning);
     }
     public function registration2(){
 

@@ -117,37 +117,37 @@ function createNewAddress(){
     const createButton = document.getElementById("createButton");
     
     newAddress.setAttribute('id','newAddress'+x);
-    newAddress.classList.add("bg-primary", "my-4");
+    newAddress.classList.add( "my-4");
     newAddress.innerHTML = ''+
     '<div class="row my-2 mx-5">'+
     '<div class=" col-lg-2 col-0"></div>'+
     '<div class="col-lg-4 col-12 ">'+
-  '    <label class="form-label h3 text-white" for="country">Country</label><br>'+
-  '    <input class="form-control h3" type="type" name="country" placeholder="country" required>'+
+  '    <label class="form-label h3 " for="country">Country</label><br>'+
+  '    <input class="form-control h3" type="type" name="country" required>'+
   '  </div>'+
   '  <div class="col-lg-1 col-0"></div>'+
   '  <div class="col-lg-4 col-12">'+
-  '    <label class="form-label h3 text-white" for="province">Province</label><br>'+
-  '    <input class="form-control h3" type="type" name="province" placeholder="province" required>'+
+  '    <label class="form-label h3 " for="province">Province</label><br>'+
+  '    <input class="form-control h3" type="type" name="province"  required>'+
   '  </div>'+
   '</div>'+
   '<div class="row my-2 mx-5">'+
   '  <div class="col-lg-2"></div>'+
   '  <div class="col-lg-4 col-12 ">'+
-  '    <label class="form-label h3 text-white" for="city">City</label><br>'+
-  '    <input class="form-control h3" type="type" name="city" placeholder="city" required>'+
+  '    <label class="form-label h3 " for="city">City</label><br>'+
+  '    <input class="form-control h3" type="type" name="city"required>'+
   '  </div>'+
   '  <div class="col-lg-1 col-0"></div>'+
   '  <div class="col-lg-4 col ">'+
-  '    <label class="form-label h3 text-white" for="postcode">Postcode</label><br>'+
-  '    <input class="form-control h3" type="type" name="postcode" placeholder="00000" required>'+
+  '    <label class="form-label h3 " for="postcode">Postcode</label><br>'+
+  '    <input class="form-control h3" type="type" name="postcode"  required>'+
   '  </div>'+
   '</div>'+
   '<div class="row my-2 mx-5">'+
   '  <div class="col-lg-2 col-0"></div>'+
   '  <div class="col-lg-4 col-12">'+
-  '    <label class="form-label h3 text-white" for="address">Address</label><br>'+
-  '    <input class="form-control h3 col-6" type="type" name="address" placeholder="address" required>'+
+  '    <label class="form-label h3 " for="address">Address</label><br>'+
+  '    <input class="form-control h3 col-6" type="type" name="address"  required>'+
   '</div>'+
   '  <div class="col-lg-1 col-0"></div>'+
   //'  <input class="btn btn-danger btn-lg col-2 my-3 mx-3"  type="button" value="delete" onclick="deleteChild('+x+')"/>'+
@@ -202,7 +202,6 @@ function createFamily(){
     input1.classList.add("form-control", "h3");
     input1.setAttribute('type','type');
     input1.setAttribute('name','firstname');
-    input1.setAttribute('placeholder','firstname');
     input1.setAttribute('required', 'required');
 
     const headerDiv2Row3 = document.createElement("div");
@@ -217,7 +216,6 @@ function createFamily(){
     input2.classList.add("form-control", "h3");
     input2.setAttribute('type','type');
     input2.setAttribute('name','lastname');
-    input2.setAttribute('placeholder','lastname');
     input2.setAttribute('required', 'required');
 
     const headerDiv3 = document.createElement("div");
@@ -235,7 +233,6 @@ function createFamily(){
     input3.classList.add("form-control", "h3");
     input3.setAttribute('list','prefixList');
     input3.setAttribute('id','prefix');
-    input3.setAttribute('placeholder','+');
     input3.setAttribute('required', 'required');
     const datalist = document.createElement("datalist");
     datalist.setAttribute('id', 'prefixlist');
@@ -259,7 +256,6 @@ function createFamily(){
     input4.setAttribute('type','type');
     input3.setAttribute('id','phone');
     input4.setAttribute('name','phone');
-    input4.setAttribute('placeholder','1234567891');
     input4.setAttribute('required', 'required');
 
     headerDiv3Row3.append(label4);
@@ -336,7 +332,6 @@ function createOPES(){
     input1.classList.add("form-control", "h3");
     input1.setAttribute('type','type');
     input1.setAttribute('name','opes');
-    input1.setAttribute('placeholder','xxxxxxxx');
     input1.setAttribute('required', 'required');
 
     const headerDiv2Row3 = document.createElement("div");
