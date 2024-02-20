@@ -123,31 +123,31 @@ function createNewAddress(){
     '<div class=" col-lg-2 col-0"></div>'+
     '<div class="col-lg-4 col-12 ">'+
   '    <label class="form-label h3 " for="country">Country</label><br>'+
-  '    <input class="form-control h3" type="type" name="country" required>'+
+  '    <input class="form-control h3" type="type" name="country[]" required>'+
   '  </div>'+
   '  <div class="col-lg-1 col-0"></div>'+
   '  <div class="col-lg-4 col-12">'+
   '    <label class="form-label h3 " for="province">Province</label><br>'+
-  '    <input class="form-control h3" type="type" name="province"  required>'+
+  '    <input class="form-control h3" type="type" name="province[]"  required>'+
   '  </div>'+
   '</div>'+
   '<div class="row my-2 mx-5">'+
   '  <div class="col-lg-2"></div>'+
   '  <div class="col-lg-4 col-12 ">'+
   '    <label class="form-label h3 " for="city">City</label><br>'+
-  '    <input class="form-control h3" type="type" name="city"required>'+
+  '    <input class="form-control h3" type="type" name="city[]"required>'+
   '  </div>'+
   '  <div class="col-lg-1 col-0"></div>'+
   '  <div class="col-lg-4 col ">'+
   '    <label class="form-label h3 " for="postcode">Postcode</label><br>'+
-  '    <input class="form-control h3" type="type" name="postcode"  required>'+
+  '    <input class="form-control h3" type="type" name="postcode[]"  required>'+
   '  </div>'+
   '</div>'+
   '<div class="row my-2 mx-5">'+
   '  <div class="col-lg-2 col-0"></div>'+
   '  <div class="col-lg-4 col-12">'+
   '    <label class="form-label h3 " for="address">Address</label><br>'+
-  '    <input class="form-control h3 col-6" type="type" name="address"  required>'+
+  '    <input class="form-control h3 col-6" type="type" name="address[]"  required>'+
   '</div>'+
   '  <div class="col-lg-1 col-0"></div>'+
   //'  <input class="btn btn-danger btn-lg col-2 my-3 mx-3"  type="button" value="delete" onclick="deleteChild('+x+')"/>'+

@@ -38,7 +38,7 @@
           style="height: 300% !important; margin-top: -2rem; margin-left: -1.5rem; margin-right: -1.3rem;">-->
       </div>
       <?php for ($i = 1; $i < 4 - $step; $i++) {
-        # code...
+
       ?>
         <div class="progress-bar bg-primary progress-bar-striped border border-light border-opacity-10" role="progressbar" style="width:33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
         <div class="bg-primary overflow-visible ">
@@ -73,31 +73,31 @@
             <div class=" col-lg-2 col-0"></div>
             <div class="col-lg-4 col-12 ">
               <label class="form-label h3 " for="firstname">Firstname</label><br>
-              <input class="form-control h3" type="type" id="firstname" name="firstname" required>
+              <input class="form-control h3" type="type" id="firstname" name="firstname" required value=<?= $obj->getFirstname() ?>>
             </div>
             <div class="col-lg-1 col-0"></div>
             <div class="col-lg-4 col-12">
               <label class="form-label h3" for="lastname">Lastname</label><br>
-              <input class="form-control h3" type="type" id="lastname" name="lastname" required>
+              <input class="form-control h3" type="type" id="lastname" name="lastname" required value=<?= $obj->getLastname() ?>>
             </div>
           </div>
           <div class="row my-2 mx-5">
             <div class=" col-lg-2 col-0"></div>
             <div class="col-lg-9">
               <label class="form-label h3" for="codicefiscale">Codice fiscale</label><br>
-              <input class="form-control h3" type="type" id="codicefiscale" name="codicefiscale" required>
+              <input class="form-control h3" type="type" id="codicefiscale" name="codicefiscale" required value=<?= $obj->getCodicefiscale() ?>>
             </div>
           </div>
           <div class="row my-2 mx-5">
             <div class="col-lg-2"></div>
             <div class="col-lg-4 col-12 ">
               <label class="form-label h3" for="email">E-mail</label><br>
-              <input class="form-control h3" type="type" id="email" name="email" required>
+              <input class="form-control h3" type="type" id="email" name="email" required value=<?= $obj->getEmail() ?>>
             </div>
             <div class="col-lg-1 col-0"></div>
             <div class="col-lg-1 col-4">
               <label for="prefix" class="form-label h3">Prefix</label>
-              <input class="form-control h3" list="prefixList" id="prefix" required>
+              <input class="form-control h3" list="prefixList" name="prefix" id="prefix" required value=<?= $prefix ?>>
               <datalist id="prefixList">
                 <option value="+39">
                 <option value="+49">
@@ -107,7 +107,7 @@
             </div>
             <div class="col-lg-3 col ">
               <label class="form-label h3" for="phone">Phone</label><br>
-              <input class="form-control h3" type="type" id="phone" name="phone" required>
+              <input class="form-control h3" type="type" id="phone" name="phone" required value=<?= $phone ?>>
             </div>
           </div>
           <div class="row my-2 mx-5">
@@ -126,16 +126,18 @@
             </div>
           </div>
           <input type="hidden" name="step" value=1>
-          
+
           <div class="d-flex justify-content-center  col px-lg-0 w-100">
             <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
           </div>
     </div>
-  <?php ;break;
+  <?php ;
+          break;
         case 1:
-          
+
   ?>
-    <input type="hidden" name="obj" value=<?=$obj?>>
+    <input type="hidden" name="obj" value=<?= $obj ?>>
+
     <input type="hidden" name="step" value=2>
     <div class="row my-2 mx-5">
       <div class=" col-lg-2 col-0"></div>
@@ -145,12 +147,12 @@
       <div class=" col-lg-2 col-0"></div>
       <div class="col-lg-4 col-12 ">
         <label class="form-label h3">Country</label><br>
-        <input class="form-control h3" type="type" name="country" required>
+        <input class="form-control h3" type="type" name="country[]" value="<?=$addresses[0]->getCountry()?>" required>
       </div>
       <div class="col-lg-1 col-0"></div>
       <div class="col-lg-4 col-12">
         <label class="form-label h3">Province</label><br>
-        <input class="form-control h3" type="type" name="province" required>
+        <input class="form-control h3" type="type" name="province[]" value="<?=$addresses[0]->getProvince()?>" required>
       </div>
 
     </div>
@@ -158,19 +160,19 @@
       <div class="col-lg-2"></div>
       <div class="col-lg-4 col-12 ">
         <label class="form-label h3">City</label><br>
-        <input class="form-control h3" type="type" name="city" required>
+        <input class="form-control h3" type="type" name="city[]" value="<?=$addresses[0]->getCity()?>" required>
       </div>
       <div class="col-lg-1 col-0"></div>
       <div class="col-lg-4 col ">
         <label class="form-label h3">Postcode</label><br>
-        <input class="form-control h3" type="type" name="postcode" required>
+        <input class="form-control h3" type="type" name="postcode[]"  value="<?=$postcode?>"required>
       </div>
     </div>
     <div class="row my-2 mx-5">
       <div class="col-lg-2 col-0"></div>
       <div class="col-lg-4 col-12">
         <label class="form-label h3">Address</label><br>
-        <input class="form-control h3" type="type" name="address" required>
+        <input class="form-control h3" type="type" name="address[]"  value="<?=$addresses[0]->getAddress()?>"required>
       </div>
     </div>
     <div id="createButton" class="row my-2 mx-5">
@@ -183,7 +185,8 @@
     <div class="d-flex justify-content-center  col px-lg-0 w-100" id="submit">
       <input class="btn btn-primary btn-lg" type="submit" value="Submit" id="buttonSubmit" />
     </div>
-  <?php ;break;
+  <?php ;
+          break;
         case 2:
   ?>
     <input type="hidden" name="step" value=3>
@@ -192,7 +195,7 @@
       <div class="col-lg-4 col-12 ">
         <input class="btn btn-primary btn-lg" type="button" value="Add Family Member" onclick="createFamily()" />
       </div>
-    </div>x
+    </div>
 
     <div id="buttonOpes" class="row my-2 mx-5">
       <div class="col-lg-2 col-0"></div>
@@ -204,10 +207,11 @@
     <div class="d-flex justify-content-center  col px-lg-0 w-100" id="submit">
       <input class="btn btn-primary btn-lg" type="submit" value="Skip" id="buttonSubmit" />
     </div>
-  <?php ;break;
+  <?php ;
+          break;
         case 3:
   ?>
-    
+
     <div class="row">
       <div class="col-lg-4 col-0"></div>
       <div class="col-lg-4 col-12 justify-content-center py-5 bg-primary text-center rounded-3">
@@ -219,7 +223,8 @@
       </div>
 
     </div>
-<?php ;break;
+<?php ;
+          break;
       }
 ?>
 

@@ -4,13 +4,13 @@ class User
 {
 
     use ActiveRecordable, Deletable, Findable, Persistable;
-    private $firstname = "";
-    private $lastname = "";
-    private $codicefiscale = "";
-    private $email = "";
-    private $phone = 0;
-    private $password = "";
-
+    private string $firstname = "";
+    private string $lastname = "";
+    private string $codicefiscale ="";
+    private string $email ="";
+    private int $phone =0;
+    private string $password ="";
+    protected static $table = 'person';
     /**
      * Get the value of password
      */
@@ -82,6 +82,38 @@ class User
     }
     public function __toString()
     {
-        return json_encode( $this->toArray() );
+        return json_encode($this->toArray());
+    }
+
+    /**
+     * Get the value of firstname
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Get the value of lastname
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * Get the value of codicefiscale
+     */
+    public function getCodicefiscale()
+    {
+        return $this->codicefiscale;
+    }
+
+    /**
+     * Get the value of email
+     */
+    public function getEmail()
+    {
+        return $this->email;
     }
 }
