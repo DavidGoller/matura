@@ -201,7 +201,7 @@ function createFamily(){
     const input1 = document.createElement("input");
     input1.classList.add("form-control", "h3");
     input1.setAttribute('type','type');
-    input1.setAttribute('name','firstname');
+    input1.setAttribute('name','firstname[]');
     input1.setAttribute('required', 'required');
 
     const headerDiv2Row3 = document.createElement("div");
@@ -215,7 +215,7 @@ function createFamily(){
     const input2 = document.createElement("input");
     input2.classList.add("form-control", "h3");
     input2.setAttribute('type','type');
-    input2.setAttribute('name','lastname');
+    input2.setAttribute('name','lastname[]');
     input2.setAttribute('required', 'required');
 
     const headerDiv3 = document.createElement("div");
@@ -255,7 +255,7 @@ function createFamily(){
     input4.classList.add("form-control", "h3");
     input4.setAttribute('type','type');
     input3.setAttribute('id','phone');
-    input4.setAttribute('name','phone');
+    input4.setAttribute('name','phone[]');
     input4.setAttribute('required', 'required');
 
     headerDiv3Row3.append(label4);

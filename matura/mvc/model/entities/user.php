@@ -4,6 +4,7 @@ class User
 {
 
     use ActiveRecordable, Deletable, Findable, Persistable;
+    
     private string $firstname = "";
     private string $lastname = "";
     private string $codicefiscale ="";

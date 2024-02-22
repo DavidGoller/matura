@@ -10,6 +10,7 @@ class Address
     private string $city = "";
     private string $province = "";
     private int $uid = 0;
+    private int $id = 0;
 
 
 
@@ -124,5 +125,26 @@ class Address
     public function __toString()
     {
         return "Address: {$this->address}, City: {$this->city}, Province: {$this->province}, Country: {$this->country}, Postcode: {$this->postcode}, UID: {$this->uid}\n";
+    }
+
+    /**
+     * Get the value of id
+     *
+     * @return int
+     */
+    public function getId(): int {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @param int $id
+     *
+     * @return self
+     */
+    public function setId(int $id): self {
+        $this->id = $id;
+        return $this;
     }
 }
