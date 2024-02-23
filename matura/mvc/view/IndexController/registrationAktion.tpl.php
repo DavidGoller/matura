@@ -189,6 +189,8 @@
           break;
         case 2:
   ?>
+    <input type="hidden" name="addresses" value=<?= json_encode($addresses)?>/>
+    <input type="hidden" name="obj" value=<?= $obj ?>>
     <input type="hidden" name="step" value=3>
     <div id="buttonFamily" class="row my-2 mx-5">
       <div class="col-lg-2 col-0"></div>

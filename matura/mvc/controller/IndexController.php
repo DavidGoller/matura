@@ -15,7 +15,9 @@ class IndexController extends AbstractBase
     }
 
     public function registration()
-    {
+    {      
+        $opes = new Opes();
+        $family=[];
         $step = 0;
         $obj = new User();
         $phone = "";
@@ -101,46 +103,65 @@ class IndexController extends AbstractBase
                         $add->setProvince($province);
                         $addresses[] = $add;
                     }
+                    echo($_POST["obj"]);
                     foreach (json_decode($_POST["obj"]) as $key => $value) {
                         $setterName = 'set' . ucfirst($key);
                         if (method_exists($obj, $setterName)) {
                             $obj->$setterName($value);
                         }
                     }
-
+                    
                     break;
                 case 3:
                     //validate 3rd
-                    $family = [];
-                    $opes = new Opes();
-                    if(isset($_POST["opes"])){
+                    $object = $_POST["obj"];
+                    if(substr($object, strlen($object)-1,0)=="/"){
+                    $object = substr($object, 0,-1);
+                    }
+                    foreach (json_decode($object) as $key => $value) { 
+                        $setterName = 'set' . ucfirst($key);
+                        if (method_exists($obj, $setterName)) {
+                            $obj->$setterName($value);
+                        }
+                    }
+                    
+                    
+                    if (isset($_POST["opes"])) {
                         $cardnumber = trim($_POST["opes"]);
-                        if(!preg_match("/^[0-9]*$/",$cardnumber)){
+                        if (!preg_match("/^[0-9]*$/", $cardnumber)) {
                             $warning = "cardnumber is invalide";
                         }
 
                         $opes->setCardnumber($cardnumber);
                     }
-                    if(isset($_POST["firstname"])){
+                    if (isset($_POST["firstname"])) {
                         $lenght = count($_POST["firstname"]);
                         for ($x = 0; $x < $lenght; $x++) {
                             $member = new family();
                             $lastname = trim($_POST["lastname"][$x]);
                             $firstname = trim($_POST["firstname"][$x]);
-                            $prefix = trim($_POST["prefix"][$x]);
+                            $prefix = trim((String)$_POST["prefix"][$x]);
                             $phone = (int)(str_replace("+", "", $prefix) . trim($_POST["phone"][$x]));
-                            if(!preg_match("/^[a-zA-Z]*$/", $firstname)) {
+                            if (!preg_match("/^[a-zA-Z]*$/", $firstname)) {
                                 $warning = "First name can only contain letters.";
-                            } 
-                            else if (!preg_match("/^[a-zA-Z]*$/", $lastname) && $warning == "") {
+                            } else if (!preg_match("/^[a-zA-Z]*$/", $lastname) && $warning == "") {
                                 $warning = "Last name can only contain letters.";
-                            }
-                            else if (!preg_match("/^[+0-9]*$/", $prefix) && $warning == "") {
+                            } else if (!preg_match("/^[+0-9]*$/", $prefix) && $warning == "") {
                                 $warning = "Phone prefix must be in the format +[0-9]*";
-                            }
-                            else if (!preg_match("/^(?=.*\d)[0-9]*$/", trim($_POST["phone"])) && $warning == "") {
+                            } else if (!preg_match("/^(?=.*\d)[0-9]*$/", trim($_POST["phone"][$x])) && $warning == "") {
                                 $warning = "Phone number can only contain numbers.";
+                            } else {
+                              
+                                /*
+                                country[]: Italien
+                                province[]: Bozen
+                                city[]: Bozen
+                                postcode[]: 39100
+                                address[]: Rom str. 20
+                                So weitergeben um einheitlich zu machen
+                                */
                             }
+
                             if ($warning != "") {
 
                                 $phone = $_POST["phone"];
@@ -150,12 +171,20 @@ class IndexController extends AbstractBase
                             $member->setPhone($phone);
                             $family[] = $member;
                         }
-                }
+                    }
 
 
 
                     break;
                 case 4:
+                    
+                    foreach (json_decode($_POST["obj"]) as $key => $value) {
+                        $setterName = 'set' . ucfirst($key);
+                        if (method_exists($obj, $setterName)) {
+                            $obj->$setterName($value);
+                        }
+                    }
+                    
                     //Insert into DB
             }
 
@@ -179,6 +208,13 @@ class IndexController extends AbstractBase
         }
         $this->addContext("addresses", $addresses);
         $this->addContext("postcode", $pc);
+        $this->addContext("family",$family);
+        if(isset($_POST["country"])){
+            $this->addContext("country", $_POST["country"]);
+            $this->addContext("province", $_POST["country"]);
+            $this->addContext("country", $_POST["country"]);
+            $this->addContext("country", $_POST["country"]);
+        }
     }
 
     public function registration2()

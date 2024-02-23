@@ -87,8 +87,8 @@ class family{
      *
      * @return self
      */
-    public function setPhone(int $phone): self {
-        $this->phone = $phone;
+    public function setPhone($phone) {
+        $this->phone = (int)$phone;
         return $this;
     }
 }

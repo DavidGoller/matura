@@ -233,13 +233,22 @@ function createFamily(){
     input3.classList.add("form-control", "h3");
     input3.setAttribute('list','prefixList');
     input3.setAttribute('id','prefix');
-    input3.setAttribute('required', 'required');
+    input3.setAttribute('name','prefix[]');
+    input3.setAttribute('required', 'required'); 
     const datalist = document.createElement("datalist");
-    datalist.setAttribute('id', 'prefixlist');
-    datalist.append(document.createElement("option").setAttribute("value","+39"));
-    datalist.append(document.createElement("option").setAttribute("value","+49"));
-    datalist.append(document.createElement("option").setAttribute("value","+43"));
-    datalist.append(document.createElement("option").setAttribute("value","+41"));
+    datalist.setAttribute('id', 'prefixList');
+    let prefixoptions =[];
+    for (let index = 0; index < 4; index++) {
+        prefixoptions[index] =document.createElement("option") ;
+    }
+    prefixoptions[0].setAttribute("value","+39");
+    prefixoptions[1].setAttribute("value", "+49");
+    prefixoptions[2].setAttribute("value","+43");
+    prefixoptions[3].setAttribute("value", "+41");
+    datalist.append(prefixoptions[0]);
+    datalist.append(prefixoptions[1]);
+    datalist.append(prefixoptions[2]);
+    datalist.append(prefixoptions[3]);
 
 
     headerDiv3Row2.append(label3);
@@ -254,7 +263,7 @@ function createFamily(){
     const input4 = document.createElement("input");
     input4.classList.add("form-control", "h3");
     input4.setAttribute('type','type');
-    input3.setAttribute('id','phone');
+    input4.setAttribute('id','phone');
     input4.setAttribute('name','phone[]');
     input4.setAttribute('required', 'required');
 
