@@ -69,4 +69,8 @@ class Opes{
         $this->id = $id;
         return $this;
     }
+    public function __toString()
+    {
+        return json_encode($this->toArray());
+    }
 }

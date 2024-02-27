@@ -27,7 +27,7 @@ class Address
      */
     public function setAddress($address): self
     {
-        $this->address = $address;
+        $this->address = str_replace(" ","&nbsp",$address);
         return $this;
     }
 
@@ -44,7 +44,7 @@ class Address
      */
     public function setCountry($country): self
     {
-        $this->country = $country;
+        $this->country = str_replace(" ","&nbsp",$country);
         return $this;
     }
 
@@ -78,7 +78,7 @@ class Address
      */
     public function setCity($city): self
     {
-        $this->city = $city;
+        $this->city = str_replace(" ","&nbsp",$city);
         return $this;
     }
 
@@ -95,7 +95,7 @@ class Address
      */
     public function setProvince($province): self
     {
-        $this->province = $province;
+        $this->province = str_replace(" ","&nbsp",$province);
         return $this;
     }
 
@@ -122,18 +122,20 @@ class Address
         $this->uid = $uid;
         return $this;
     }
-    public function __toString()
-    {
-        return "Address: {$this->address}, City: {$this->city}, Province: {$this->province}, Country: {$this->country}, Postcode: {$this->postcode}, UID: {$this->uid}\n";
-    }
+ 
 
     /**
-     * Get the value of id
+     * Get the value of  id
      *
      * @return int
      */
     public function getId(): int {
         return $this->id;
+    }
+
+    public function __toString()
+    {
+        return json_encode($this->toArray());
     }
 
     /**
@@ -146,5 +148,12 @@ class Address
     public function setId(int $id): self {
         $this->id = $id;
         return $this;
+    }
+    public function removeNbsp(){
+        $this->city = str_replace("&nbsp", " ", $this->city);
+        $this->province = str_replace("&nbsp", " ", $this->province);
+        $this->country = str_replace("&nbsp", " ", $this->country);
+        $this->address = str_replace("&nbsp", " ", $this->address);
+        
     }
 }

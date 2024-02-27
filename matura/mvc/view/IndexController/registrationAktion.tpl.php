@@ -134,7 +134,7 @@
   <?php ;
           break;
         case 1:
-
+         
   ?>
     <input type="hidden" name="obj" value=<?= $obj ?>>
 
@@ -143,6 +143,7 @@
       <div class=" col-lg-2 col-0"></div>
       <label class="form-label h3 col">Address</label>
     </div>
+    <?php $addresses[0]->removeNbsp()?>
     <div class="row my-2 mx-5">
       <div class=" col-lg-2 col-0"></div>
       <div class="col-lg-4 col-12 ">
@@ -189,7 +190,11 @@
           break;
         case 2:
   ?>
-    <input type="hidden" name="addresses" value=<?= json_encode($addresses)?>/>
+  <?php 
+    foreach ($addresses as $address) {?>
+    <input type="hidden" name="addresses[]" value=<?= $address?>/>
+    <?php }
+  ?>
     <input type="hidden" name="obj" value=<?= $obj ?>>
     <input type="hidden" name="step" value=3>
     <div id="buttonFamily" class="row my-2 mx-5">
@@ -213,7 +218,17 @@
           break;
         case 3:
   ?>
-
+    <?php
+    //TODO DATABASE INSERT
+    echo($obj . "</br>");
+    foreach ($addresses as $address) {
+      echo($address . "</br>");
+    }
+    foreach ($family as $member) {
+      echo($member . "</br>");
+    }
+    echo ($opes . "</br>");
+    ?>
     <div class="row">
       <div class="col-lg-4 col-0"></div>
       <div class="col-lg-4 col-12 justify-content-center py-5 bg-primary text-center rounded-3">

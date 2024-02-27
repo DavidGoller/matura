@@ -91,4 +91,8 @@ class family{
         $this->phone = (int)$phone;
         return $this;
     }
+    public function __toString()
+    {
+        return json_encode($this->toArray());
+    }
 }

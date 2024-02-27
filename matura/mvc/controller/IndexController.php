@@ -103,35 +103,22 @@ class IndexController extends AbstractBase
                         $add->setProvince($province);
                         $addresses[] = $add;
                     }
-                    echo($_POST["obj"]);
-                    foreach (json_decode($_POST["obj"]) as $key => $value) {
-                        $setterName = 'set' . ucfirst($key);
-                        if (method_exists($obj, $setterName)) {
-                            $obj->$setterName($value);
-                        }
-                    }
+                    
+                    
+                    
+                    $obj = $_POST["obj"];
+                    
                     
                     break;
                 case 3:
-                    //validate 3rd
-                    $object = $_POST["obj"];
-                    if(substr($object, strlen($object)-1,0)=="/"){
-                    $object = substr($object, 0,-1);
-                    }
-                    foreach (json_decode($object) as $key => $value) { 
-                        $setterName = 'set' . ucfirst($key);
-                        if (method_exists($obj, $setterName)) {
-                            $obj->$setterName($value);
-                        }
-                    }
-                    
-                    
+                    $obj = $_POST["obj"];
+                    $addresses = $_POST["addresses"];
                     if (isset($_POST["opes"])) {
                         $cardnumber = trim($_POST["opes"]);
                         if (!preg_match("/^[0-9]*$/", $cardnumber)) {
                             $warning = "cardnumber is invalide";
                         }
-
+                        
                         $opes->setCardnumber($cardnumber);
                     }
                     if (isset($_POST["firstname"])) {
@@ -150,16 +137,6 @@ class IndexController extends AbstractBase
                                 $warning = "Phone prefix must be in the format +[0-9]*";
                             } else if (!preg_match("/^(?=.*\d)[0-9]*$/", trim($_POST["phone"][$x])) && $warning == "") {
                                 $warning = "Phone number can only contain numbers.";
-                            } else {
-                              
-                                /*
-                                country[]: Italien
-                                province[]: Bozen
-                                city[]: Bozen
-                                postcode[]: 39100
-                                address[]: Rom str. 20
-                                So weitergeben um einheitlich zu machen
-                                */
                             }
 
                             if ($warning != "") {
@@ -170,7 +147,9 @@ class IndexController extends AbstractBase
                             $member->setLastname($lastname);
                             $member->setPhone($phone);
                             $family[] = $member;
+
                         }
+                        
                     }
 
 
@@ -198,7 +177,7 @@ class IndexController extends AbstractBase
         $this->addContext("warning", $warning);
         $this->addContext("step", $step);
 
-        if (count($addresses) == 0) {
+        if ($addresses == null) {
             $add = new Address();
             $add->setAddress("");
             $add->setCountry("");
@@ -209,12 +188,9 @@ class IndexController extends AbstractBase
         $this->addContext("addresses", $addresses);
         $this->addContext("postcode", $pc);
         $this->addContext("family",$family);
-        if(isset($_POST["country"])){
-            $this->addContext("country", $_POST["country"]);
-            $this->addContext("province", $_POST["country"]);
-            $this->addContext("country", $_POST["country"]);
-            $this->addContext("country", $_POST["country"]);
-        }
+        $this->addContext("opes",$opes);
+    
+
     }
 
     public function registration2()
