@@ -16,6 +16,16 @@ class IndexController extends AbstractBase
 
     public function registration()
     {      
+        $lid = 3;
+        if (isset($_COOKIE["language"])){
+            //TODO beachte nur die ersten zwei stellen von $lang und gib zahlenwerte ein + gib den user seine lid
+            $lang = $_COOKIE["language"];
+            switch($lang) {
+                case "it": break;
+                case "de": break;
+                default: break;
+            }
+        }
         $opes = new Opes();
         $family=[];
         $step = 0;
@@ -162,9 +172,12 @@ class IndexController extends AbstractBase
                         if (method_exists($obj, $setterName)) {
                             $obj->$setterName($value);
                         }
+
                     }
-                    
                     //Insert into DB
+                    $obj->speichere();
+                    
+                    
             }
 
             if ($warning != "") {
@@ -193,13 +206,4 @@ class IndexController extends AbstractBase
 
     }
 
-    public function registration2()
-    {
-    }
-    public function registration3()
-    {
-    }
-    public function registration4()
-    {
-    }
 }

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  
   <title>Register1</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
@@ -50,7 +51,7 @@
     </div>
   </div>
 
-  <form action="index.php?aktion=registration" method="post" id="addressForm">
+  <form name="myform" action="index.php?aktion=registration" method="post" id="addressForm">
 
     <div class="container align-items-center justify-content-center bg-white py-5 rounded-4">
       <?php
@@ -125,6 +126,7 @@
 
             </div>
           </div>
+          <input type="hidden" name="lid" value="getBrowserLang()">
           <input type="hidden" name="step" value=1>
 
           <div class="d-flex justify-content-center  col px-lg-0 w-100">
@@ -218,6 +220,7 @@
           break;
         case 3:
   ?>
+  <script language="JavaScript">toLogin();</script>
     <?php
     //TODO DATABASE INSERT
     echo($obj . "</br>");
@@ -229,6 +232,20 @@
     }
     echo ($opes . "</br>");
     ?>
+    <input type="hidden" name="step" value=4>
+    <?php 
+    foreach ($addresses as $address) {?>
+    <input type="hidden" name="addresses[]" value=<?= $address?>/>
+    <?php }
+  ?>
+    <input type="hidden" name="obj" value=<?= $obj ?>>
+    <?php 
+    foreach ($family as $member) {?>
+    <input type="hidden" name="family[]" value=<?= $member?>/>
+    <?php }
+  ?>
+  <input type="hidden" name="opes" value=<?= $opes ?>>
+
     <div class="row">
       <div class="col-lg-4 col-0"></div>
       <div class="col-lg-4 col-12 justify-content-center py-5 bg-primary text-center rounded-3">
@@ -240,10 +257,12 @@
       </div>
 
     </div>
+
 <?php ;
           break;
       }
 ?>
+
 
 </div>
   </form>

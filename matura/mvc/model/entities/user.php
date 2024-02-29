@@ -4,14 +4,14 @@ class User
 {
 
     use ActiveRecordable, Deletable, Findable, Persistable;
-    
+    private int $id = 0;
     private string $firstname = "";
     private string $lastname = "";
     private string $codicefiscale ="";
     private string $email ="";
     private int $phone =0;
     private string $password ="";
-    protected static $table = 'person';
+    protected static $table = 'user';
     /**
      * Get the value of password
      */
@@ -116,5 +116,26 @@ class User
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Get the value of id
+     *
+     * @return int
+     */
+    public function getId(): int {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @param int $id
+     *
+     * @return self
+     */
+    public function setId(int $id): self {
+        $this->id = $id;
+        return $this;
     }
 }

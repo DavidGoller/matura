@@ -1,3 +1,5 @@
+const lang = navigator.language;
+document.cookie = "language="+lang;
 let x=0;
 function wrapper(wrapperInt) {
     const dropdown = document.getElementById("wrapper" + wrapperInt).parentNode.children[1]
@@ -390,7 +392,7 @@ function submitOrSkip(){
     }
 }
 function toLogin(){
-    setTimeout(() => { 
-        window.location.replace("index.php");
-    }, 3000); 
+  setTimeout(() => { 
+        document.myform.submit();
+    }, 3000);
 }
