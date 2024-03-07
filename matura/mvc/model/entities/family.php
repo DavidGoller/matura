@@ -7,6 +7,7 @@ class family{
     private string $firstname = "";
     private string $lastname = "";
     private int $phone = 0;
+    private int $uid = 0;
 
     /**
      * Get the value of id
@@ -17,17 +18,7 @@ class family{
         return $this->id;
     }
 
-    /**
-     * Set the value of id
-     *
-     * @param int $id
-     *
-     * @return self
-     */
-    public function setId(int $id): self {
-        $this->id = $id;
-        return $this;
-    }
+
 
     /**
      * Get the value of firstname
@@ -94,5 +85,26 @@ class family{
     public function __toString()
     {
         return json_encode($this->toArray());
+    }
+
+    /**
+     * Get the value of uid
+     *
+     * @return int
+     */
+    public function getUid(): int {
+        return $this->uid;
+    }
+
+    /**
+     * Set the value of uid
+     *
+     * @param int $uid
+     *
+     * @return self
+     */
+    public function setUid(int $uid): self {
+        $this->uid = $uid;
+        return $this;
     }
 }

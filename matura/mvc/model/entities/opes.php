@@ -2,9 +2,9 @@
 
 class Opes{
     use ActiveRecordable, Deletable, Findable, Persistable;
-    private int $cardnumber;
-    private int $uid;
-    private int $id;
+    private int $cardnumber = 0;
+    private int $uid = 0;
+    private int $id = 0;
     protected static $table = 'opes';
 
     /**
@@ -65,10 +65,7 @@ class Opes{
      *
      * @return self
      */
-    public function setId(int $id): self {
-        $this->id = $id;
-        return $this;
-    }
+
     public function __toString()
     {
         return json_encode($this->toArray());

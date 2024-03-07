@@ -15,19 +15,25 @@ class IndexController extends AbstractBase
     }
 
     public function registration()
-    {      
+    {
         $lid = 3;
-        if (isset($_COOKIE["language"])){
+        if (isset($_COOKIE["language"])) {
             //TODO beachte nur die ersten zwei stellen von $lang und gib zahlenwerte ein + gib den user seine lid
             $lang = $_COOKIE["language"];
-            switch($lang) {
-                case "it": break;
-                case "de": break;
-                default: break;
+            switch (substr($lang, 0)) {
+                case "de":
+                    $lid = "1";
+                    break;
+                case "it":
+                    $lid = "2";
+                    break;
+                default:
+                    $lid = "3";
+                    break;
             }
         }
         $opes = new Opes();
-        $family=[];
+        $family = [];
         $step = 0;
         $obj = new User();
         $phone = "";
@@ -57,9 +63,9 @@ class IndexController extends AbstractBase
                         $warning = "Password may only contain letters, numbers and special charakters.";
                     } else if ($password1 != $password2) {
                         $warning = "Are u dumb?";
-                    } else if (!preg_match("/^[a-zA-Z]*$/", $firstname)) {
+                    } else if (!preg_match("/^[a-zA-Z.,'&ÄÖÜäöü^ -]*$/", $firstname)) {
                         $warning = "First name can only contain letters.";
-                    } else if (!preg_match("/^[a-zA-Z]*$/", $lastname) && $warning == "") {
+                    } else if (!preg_match("/^[a-zA-Z.,'&ÄÖÜäöü^ -]*$/", $lastname) && $warning == "") {
                         $warning = "Last name can only contain letters.";
                     } else if (!preg_match("/^(?=.*\d)(?=.*[A-Za-z])[a-zA-Z0-9]*$/", $codicefiscale) && $warning == "") {
                         $warning = "Codice fiscale has to contain letters, numbers.";
@@ -73,12 +79,14 @@ class IndexController extends AbstractBase
                     if ($warning != "") {
 
                         $phone = $_POST["phone"];
+                        $password1 = md5($password1); //! Zum einloggen vergleiche den gehashtem Eingegebenen Wert mit diesem Hash
                     }
                     $obj->setFirstname($firstname);
                     $obj->setLastname($lastname);
                     $obj->setPassword($password1);
                     $obj->setEmail($email);
                     $obj->setCodicefiscale($codicefiscale);
+                    $obj->setLid($lid);
                     $obj->setPhone($phone);
 
                     break;
@@ -94,15 +102,15 @@ class IndexController extends AbstractBase
                         }
                         $city = trim($_POST["city"][$x]);
                         $province = trim($_POST["province"][$x]);
-                        if (!preg_match("/^[a-zA-Z0-9 \-\.,'&]*$/", $address)) {
+                        if (!preg_match("/^[a-zA-Z0-9 \-\.,'&ÄÖÜäöü^ -]*$/", $address)) {
                             $warning = "Invalid address format.";
-                        } else if (!preg_match("/^[a-zA-Z]*$/", $country) && $warning == "") {
+                        } else if (!preg_match("/^[a-zA-ZÄÖÜäöü^' -]*$/", $country) && $warning == "") {
                             $warning = "Invalid country format.";
                         } else if (!preg_match("/^[0-9]*$/", $postcode) && $warning == "") {
                             $warning = "Invalid postcode format.";
-                        } else if (!preg_match("/^[a-zA-Z]*$/", $city) && $warning == "") {
+                        } else if (!preg_match("/^[a-zA-ZÄÖÜäöü^' -.]*$/", $city) && $warning == "") {
                             $warning = "Invalid city format.";
-                        } else if (!preg_match("/^[a-zA-Z]*$/", $province) && $warning == "") {
+                        } else if (!preg_match("/^[a-zA-ZÄÖÜäöü^' -.]*$/", $province) && $warning == "") {
                             $warning = "Invalid province format.";
                         } else {
                             $add->setPostcode($postcode);
@@ -113,12 +121,12 @@ class IndexController extends AbstractBase
                         $add->setProvince($province);
                         $addresses[] = $add;
                     }
-                    
-                    
-                    
+
+
+
                     $obj = $_POST["obj"];
-                    
-                    
+
+
                     break;
                 case 3:
                     $obj = $_POST["obj"];
@@ -128,7 +136,7 @@ class IndexController extends AbstractBase
                         if (!preg_match("/^[0-9]*$/", $cardnumber)) {
                             $warning = "cardnumber is invalide";
                         }
-                        
+
                         $opes->setCardnumber($cardnumber);
                     }
                     if (isset($_POST["firstname"])) {
@@ -137,11 +145,11 @@ class IndexController extends AbstractBase
                             $member = new family();
                             $lastname = trim($_POST["lastname"][$x]);
                             $firstname = trim($_POST["firstname"][$x]);
-                            $prefix = trim((String)$_POST["prefix"][$x]);
+                            $prefix = trim((string)$_POST["prefix"][$x]);
                             $phone = (int)(str_replace("+", "", $prefix) . trim($_POST["phone"][$x]));
-                            if (!preg_match("/^[a-zA-Z]*$/", $firstname)) {
+                            if (!preg_match("/^[a-zA-ZäöüÄÖÜ]*$/", $firstname)) {
                                 $warning = "First name can only contain letters.";
-                            } else if (!preg_match("/^[a-zA-Z]*$/", $lastname) && $warning == "") {
+                            } else if (!preg_match("/^[a-zA-ZäöüÄÖÜ]*$/", $lastname) && $warning == "") {
                                 $warning = "Last name can only contain letters.";
                             } else if (!preg_match("/^[+0-9]*$/", $prefix) && $warning == "") {
                                 $warning = "Phone prefix must be in the format +[0-9]*";
@@ -157,27 +165,77 @@ class IndexController extends AbstractBase
                             $member->setLastname($lastname);
                             $member->setPhone($phone);
                             $family[] = $member;
-
                         }
-                        
                     }
 
 
 
                     break;
                 case 4:
-                    
+
                     foreach (json_decode($_POST["obj"]) as $key => $value) {
                         $setterName = 'set' . ucfirst($key);
                         if (method_exists($obj, $setterName)) {
                             $obj->$setterName($value);
                         }
-
                     }
-                    //Insert into DB
-                    $obj->speichere();
-                    
-                    
+
+                    $ad = $_POST["addresses"];
+                    foreach ($ad as $address) {
+                        $add = new Address();
+
+                        foreach (json_decode(str_replace("/", "", $address)) as $key => $value) {
+                            $setterName = 'set' . ucfirst($key);
+                            if (method_exists($add, $setterName)) {
+                                $add->$setterName($value);
+                            }
+                            $add->setUid($obj->getId());
+                        }
+                        $add->removeNbsp();
+                        $addresses[] = $add;
+                    }
+                    if (isset($_POST["family"])) {
+                        $fam = $_POST["family"];
+                        foreach ($fam as $mem) {
+                            $member = new Family();
+
+
+                            foreach (json_decode(str_replace("/", "", $mem)) as $key => $value) {
+                                $setterName = 'set' . ucfirst($key);
+                                if (method_exists($member, $setterName)) {
+                                    $member->$setterName($value);
+                                }
+                                $member->setUid($obj->getId());
+                            }
+
+                            $family[] = $member;
+                        }
+                    }
+                    foreach (json_decode($_POST["opes"]) as $key => $value) {
+                        $setterName = 'set' . ucfirst($key);
+                        if (method_exists($opes, $setterName)) {
+                            $opes->$setterName($value);
+                        }
+                    }
+
+                    //Insert everything else into DB
+
+                    /* $obj->speichere();
+                    foreach($addresses as $a){
+                        $a->setUid($obj->getID());
+                        $a->speichere();
+                    }
+                    foreach($family as $member){
+                        $member->setUid($obj->getID());
+                        $member->speichere();
+                    }
+                    if($opes->getCardnumber()>0){
+                        $opes->setUID($obj->getID());
+                        $opes->speichere();
+                    }
+                    */
+                    //to login
+                    $this->setTemplate("loginAktion");
             }
 
             if ($warning != "") {
@@ -200,10 +258,7 @@ class IndexController extends AbstractBase
         }
         $this->addContext("addresses", $addresses);
         $this->addContext("postcode", $pc);
-        $this->addContext("family",$family);
-        $this->addContext("opes",$opes);
-    
-
+        $this->addContext("family", $family);
+        $this->addContext("opes", $opes);
     }
-
 }

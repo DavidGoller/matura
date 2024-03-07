@@ -34,7 +34,10 @@
     <div class="progress overflow-visible">
       <div class="progress-bar bg-white" role="progressbar" style="width:<?= $step * 33 ?>%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
       <div class="bg-primary overflow-visible ">
-        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important; margin-left: -1rem;  color:white"></i>
+        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem
+         <?php if($step==0){ 
+          ?>!important; margin-left: -1rem 
+          <?php } ?>;  color:white"></i>
         <!--<img class="" src="progress.png"
           style="height: 300% !important; margin-top: -2rem; margin-left: -1.5rem; margin-right: -1.3rem;">-->
       </div>
@@ -221,17 +224,7 @@
         case 3:
   ?>
   <script language="JavaScript">toLogin();</script>
-    <?php
-    //TODO DATABASE INSERT
-    echo($obj . "</br>");
-    foreach ($addresses as $address) {
-      echo($address . "</br>");
-    }
-    foreach ($family as $member) {
-      echo($member . "</br>");
-    }
-    echo ($opes . "</br>");
-    ?>
+
     <input type="hidden" name="step" value=4>
     <?php 
     foreach ($addresses as $address) {?>
@@ -257,13 +250,10 @@
       </div>
 
     </div>
-
-<?php ;
-          break;
-      }
-?>
-
-
+      <?php ;
+                break;
+            }
+      ?>
 </div>
   </form>
 

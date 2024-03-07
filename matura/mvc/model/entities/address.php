@@ -3,7 +3,7 @@ class Address
 {
 
     use ActiveRecordable, Deletable, Findable, Persistable;
-    protected $table_name = 'addresses';
+    protected static $table_name = 'addresses';
     private string $address = "";
     private string $country = "";
     private int $postcode = 0;
@@ -145,10 +145,7 @@ class Address
      *
      * @return self
      */
-    public function setId(int $id): self {
-        $this->id = $id;
-        return $this;
-    }
+
     public function removeNbsp(){
         $this->city = str_replace("&nbsp", " ", $this->city);
         $this->province = str_replace("&nbsp", " ", $this->province);

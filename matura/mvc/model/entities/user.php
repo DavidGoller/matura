@@ -11,6 +11,7 @@ class User
     private string $email ="";
     private int $phone =0;
     private string $password ="";
+    private int $lid= 0;
     protected static $table = 'user';
     /**
      * Get the value of password
@@ -127,15 +128,25 @@ class User
         return $this->id;
     }
 
+
     /**
-     * Set the value of id
+     * Get the value of lid
      *
-     * @param int $id
+     * @return int
+     */
+    public function getLid(): int {
+        return $this->lid;
+    }
+
+    /**
+     * Set the value of lid
+     *
+     * @param int $lid
      *
      * @return self
      */
-    public function setId(int $id): self {
-        $this->id = $id;
+    public function setLid(int $lid): self {
+        $this->lid = $lid;
         return $this;
     }
 }
