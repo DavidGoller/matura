@@ -12,13 +12,53 @@ class IndexController extends AbstractBase
     }
     public function login()
     {
+        $email = "";
+        $paswd = "";
+        $warning = "";
+        $user = null;
+        if (isset($_POST["email"])) {
+            $email = $_POST["email"];
+            $paswd = $_POST["password"];
+            $erg = $this->checkEmailNPaswd($email, $paswd);
+            if (is_string($erg)) {
+                $warning = $erg;
+            } else {
+                $user = $erg;
+            }
+        }
+        if ($user != null) {
+            setcookie("user", $user, time() + 60 * 60, "./");
+            $this->setTemplate("headerbgAktion");
+        }
+
+        $this->addContext("warning", $warning);
+        $this->addContext("email", $email);
     }
 
+    private function checkEmailNPaswd($email, $paswd,)
+    {
+        $erg = null;
+        $user = User::findeNachEmail($email);
+        if ($user != null) {
+            if ($user->getPassword() == md5($paswd)) {
+                $erg = $user;
+            } else {
+                $erg = "fehler: falsches Passwort!";
+            }
+        } else {
+            $erg = "fehler: Kein Benutzer mit dieser E-Mail gefunden.";
+        }
+
+
+
+
+        return $erg;
+    }
     public function registration()
     {
         $lid = 3;
         if (isset($_COOKIE["language"])) {
-            //TODO beachte nur die ersten zwei stellen von $lang und gib zahlenwerte ein + gib den user seine lid
+
             $lang = $_COOKIE["language"];
             switch (substr($lang, 0)) {
                 case "de":
@@ -79,11 +119,10 @@ class IndexController extends AbstractBase
                     if ($warning != "") {
 
                         $phone = $_POST["phone"];
-                        $password1 = md5($password1); //! Zum einloggen vergleiche den gehashtem Eingegebenen Wert mit diesem Hash
                     }
                     $obj->setFirstname($firstname);
                     $obj->setLastname($lastname);
-                    $obj->setPassword($password1);
+                    $obj->setPassword(md5($password1)); //! Zum einloggen vergleiche den gehashtem Eingegebenen Wert mit diesem Hash
                     $obj->setEmail($email);
                     $obj->setCodicefiscale($codicefiscale);
                     $obj->setLid($lid);
@@ -220,21 +259,22 @@ class IndexController extends AbstractBase
 
                     //Insert everything else into DB
 
-                    /* $obj->speichere();
-                    foreach($addresses as $a){
+                    $obj->speichere();
+                    foreach ($addresses as $a) {
                         $a->setUid($obj->getID());
                         $a->speichere();
                     }
-                    foreach($family as $member){
+                    foreach ($family as $member) {
                         $member->setUid($obj->getID());
                         $member->speichere();
                     }
-                    if($opes->getCardnumber()>0){
+                    if ($opes->getCardnumber() > 0) {
                         $opes->setUID($obj->getID());
                         $opes->speichere();
                     }
-                    */
+
                     //to login
+                    $this->addContext("email", "");
                     $this->setTemplate("loginAktion");
             }
 

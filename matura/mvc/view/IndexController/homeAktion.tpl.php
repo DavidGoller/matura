@@ -27,7 +27,6 @@
   <link rel="icon" type="image/x-icon" href="./rscr/img/favlogo.png">
 
 </head>
-//TODO Input restrictions! - - - Alle registrations auf 1nen - - - Datatabase
 <body>
   <div class=" bg-black ">
     <div class="container-fluid py-3 px-4 text-lg-start  bg-primary  ">

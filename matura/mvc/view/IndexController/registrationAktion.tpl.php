@@ -1,118 +1,109 @@
 <!doctype html>
 <html lang="en">
 
-<!-- The HTML file for the registration form -->
-
 <head>
- <!-- Metadata and title -->
- <title>Register1</title>
- <meta charset="utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <title>Register1</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
- <!-- Bootstrap CSS and custom CSS -->
- <link href="./view/css/strapless.css" rel="stylesheet">
- <link href="./view/css/style.css" rel="stylesheet">
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="./view/css/strapless.css" rel="stylesheet" />
+  <link href="./view/css/style.css" rel="stylesheet" />
 
- <!-- jQuery library -->
- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
- <!-- Bootstrap JavaScript -->
- <script src="./rscr/js/bootstrap.bundle.js"></script>
+  <!-- jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
- <!-- Font Awesome CSS -->
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <!-- Bootstrap JavaScript -->
+  <script src="./rscr/js/bootstrap.bundle.js"></script>
 
- <!-- Custom JavaScript -->
- <script src="./rscr/js/script.js "></script>
+  <!-- Font Awsome css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
- <!-- Favicon -->
- <link rel="icon" type="image/x-icon" href="./rscr/img/favlogo.png">
+  <!--IDK TBH-->
+  <script src="./rscr/js/script.js "></script>
+
+  <!--FavIcon-->
+  <link rel="icon" type="image/x-icon" href="./rscr/img/favlogo.png">
 </head>
 
 <body class="bg-primary">
- <!-- Container for the progress bar -->
- <div class="container-fluid py-5 px-4 text-lg-start bg-primary">
-   <div class="progress overflow-visible">
-     <!-- Progress bar with width based on the step -->
-     <div class="progress-bar bg-white" role="progressbar" style="width:<?= $step * 33 ?>%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
-     <!-- Icons for the progress bar -->
-     <div class="bg-primary overflow-visible">
-       <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem;
-        <?php if($step==0){ ?>!important; margin-left: -1rem <?php } ?>; color:white"></i>
-     </div>
-     <?php for ($i = 1; $i < 4 - $step; $i++) {?>
-       <!-- Progress bar and icon for incomplete steps -->
-       <div class="progress-bar bg-primary progress-bar-striped border border-light border-opacity-10" role="progressbar" style="width:33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
-       <div class="bg-primary overflow-visible">
-         <!--<img class="" src="checkpoints.png" style="height: 300% !important; margin-top: -2rem; margin-left: -1.5rem;">-->
-         <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important;  color:#41260c"></i>
-       </div>
-     <?php } ?>
-   </div>
- </div>
-<!-- Container for the registration form -->
-  <form name="myform" action="index.php?aktion=registration" method="post" id="addressForm">
+  <div class="container-fluid py-5 px-4 text-lg-start  bg-primary  ">
+    <div class="progress overflow-visible">
+      <div class="progress-bar bg-white" role="progressbar" style="width:<?= $step * 33 ?>%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="bg-primary overflow-visible ">
+        <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem
+         <?php if($step==0){ 
+          ?>!important; margin-left: -1rem 
+          <?php } ?>;  color:white"></i>
+        <!--<img class="" src="progress.png"
+          style="height: 300% !important; margin-top: -2rem; margin-left: -1.5rem; margin-right: -1.3rem;">-->
+      </div>
+      <?php for ($i = 1; $i < 4 - $step; $i++) {
 
-    <!-- Wrapper for the form -->
-<div class="container align-items-center justify-content-center bg-white py-5 rounded-4">
+      ?>
+        <div class="progress-bar bg-primary progress-bar-striped border border-light border-opacity-10" role="progressbar" style="width:33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="bg-primary overflow-visible ">
+          <!--<img class="" src="checkpoints.png" style="height: 300% !important; margin-top: -2rem; margin-left: -1.5rem;">-->
+          <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important;  color:#41260c"></i>
+        </div>
+      <?php } ?>
 
-<?php
-// Display a warning message if $warning is not empty
-if ($warning != "") {
-?>
-  <div class="d-flex justify-content-center  col px-lg-0 w-100">
-    <div class="alert alert-warning" role="alert">
-      <?= $warning ?>
     </div>
   </div>
-<?php
-}
 
-// Display the form depending on the current step
-switch ($step) {
-  case 0:
+  <form name="myform" action="index.php?aktion=registration" method="post" id="addressForm">
 
-?>
-    <!-- Step 1: Personal Information -->
-    <div class="row my-2 mx-5">
-      <!-- Firstname -->
-      <div class=" col-lg-2 col-0"></div>
-      <div class="col-lg-4 col-12 ">
-        <label class="form-label h3 " for="firstname">Firstname</label><br>
-        <input class="form-control h3" type="type" id="firstname" name="firstname" required value=<?= $obj->getFirstname() ?>>
-      </div>
+    <div class="container align-items-center justify-content-center bg-white py-5 rounded-4">
+   
+      <?php
+      if ($warning != "") {
+      ?>
+        <div class="d-flex justify-content-center  col px-lg-0 w-100">
+          <div class="alert alert-warning" role="alert">
+            <?= $warning ?>
+          </div>
+        </div>
 
-      <!-- Lastname -->
-      <div class="col-lg-1 col-0"></div>
-      <div class="col-lg-4 col-12">
-        <label class="form-label h3" for="lastname">Lastname</label><br>
-        <input class="form-control h3" type="type" id="lastname" name="lastname" required value=<?= $obj->getLastname() ?>>
-      </div>
-    </div>
+        <?php
+      }
+      switch ($step) {
+        case 0:
 
-    <!-- Codice fiscale -->
-    <div class="row my-2 mx-5">
-      <div class=" col-lg-2 col-0"></div>
-      <div class="col-lg-9">
-        <label class="form-label h3" for="codicefiscale">Codice fiscale</label><br>
-        <input class="form-control h3" type="type" id="codicefiscale" name="codicefiscale" required value=<?= $obj->getCodicefiscale() ?>>
-      </div>
-    </div>
+        ?>
 
-    <!-- Email, Phone, Prefix, and Password -->
-    <div class="row my-2 mx-5">
-      <div class=" col-lg-2"></div>
-      <div class="col-lg-4 col-12 ">
-        <!-- Email -->
-        <label class="form-label h3" for="email">E-mail</label><br>
-        <input class="form-control h3" type="type" id="email" name="email" required value=<?= $obj->getEmail() ?>>
-      </div>
-
-      <!-- Prefix -->
-      <div class="col-lg-1 col-0"></div>
-      <div class="col-lg-1 col-4">
-        <label for="prefix" class="form-label h3">Prefix</label>
-        <input class="form-control h3" list="prefixList" name="prefix" id="prefix" required value=<?= $prefix
+          <div class="row my-2 mx-5">
+            <div class=" col-lg-2 col-0"></div>
+            <div class="col-lg-4 col-12 ">
+              <label class="form-label h3 " for="firstname">Firstname</label><br>
+              <input class="form-control h3" type="type" id="firstname" name="firstname" required value=<?= $obj->getFirstname() ?>>
+            </div>
+            <div class="col-lg-1 col-0"></div>
+            <div class="col-lg-4 col-12">
+              <label class="form-label h3" for="lastname">Lastname</label><br>
+              <input class="form-control h3" type="type" id="lastname" name="lastname" required value=<?= $obj->getLastname() ?>>
+            </div>
+          </div>
+          <div class="row my-2 mx-5">
+            <div class=" col-lg-2 col-0"></div>
+            <div class="col-lg-9">
+              <label class="form-label h3" for="codicefiscale">Codice fiscale</label><br>
+              <input class="form-control h3" type="type" id="codicefiscale" name="codicefiscale" required value=<?= $obj->getCodicefiscale() ?>>
+            </div>
+          </div>
+          <div class="row my-2 mx-5">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-4 col-12 ">
+              <label class="form-label h3" for="email">E-mail</label><br>
+              <input class="form-control h3" type="type" id="email" name="email" required value=<?= $obj->getEmail() ?>>
+            </div>
+            <div class="col-lg-1 col-0"></div>
+            <div class="col-lg-1 col-4">
+              <label for="prefix" class="form-label h3">Prefix</label>
+              <input class="form-control h3" list="prefixList" name="prefix" id="prefix" required value=<?= $prefix ?>>
+              <datalist id="prefixList">
                 <option value="+39">
                 <option value="+49">
                 <option value="+43">
@@ -145,7 +136,7 @@ switch ($step) {
           <div class="d-flex justify-content-center  col px-lg-0 w-100">
             <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
           </div>
-    </div>
+    
   <?php ;
           break;
         case 1:
@@ -264,7 +255,18 @@ switch ($step) {
                 break;
             }
       ?>
+      <?php ;
+        if($step<3){
+      ?>
+      <div class="row my-2 mx-5 text-center">
+        <hr class="my-4">
+        <p>Already Registered?</p>
+        <a href="index.php?aktion=login"> Back to Login! </a>
+      </div>
+      <?php ;}?>
+  
 </div>
+
   </form>
 
 </body>

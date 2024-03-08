@@ -90,11 +90,20 @@
             </div>
           </div>
           <div class="nav-item  px-0 mx-2 py-3 pb-4">
+            <?php if(!isset($_COOKIE["user"])){ ?>
+              
             <div class="dropdown border-3 border-white border  ">
               <a class="btn  text-light" href="index.php?aktion=login" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
                 <h6 class="mb-0">LOGIN</h6>
               </a>
             </div>
+            <?php }else{?>
+              <div class="dropdown">
+              <a class="btn  text-light" href="index.php?aktion=login" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+              
+              </a>
+            </div>
+              <?php } ?>
           </div>
         </div>
         <nav class="navbar navbar-dark d-flex d-md-none col-8 justify-content-end">

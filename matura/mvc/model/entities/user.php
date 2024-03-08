@@ -149,4 +149,13 @@ class User
         $this->lid = $lid;
         return $this;
     }
+    public static function findeNachEmail($email)
+    {
+        $sql ='SELECT * FROM user WHERE email = ?';
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute([$email]);
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, get_class());
+        $user = $abfrage->fetch();
+        return $user;
+    }
 }
