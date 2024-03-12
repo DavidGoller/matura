@@ -26,9 +26,8 @@
 
   <!--FavIcon-->
   <link rel="icon" type="image/x-icon" href="./rscr/img/favlogo.png">
-</head>
 
-<body>
+
   <div class=" position-relative" style="overflow:hidden !important">
   <img src="./rscr/img/bg.png" class="position-absolute bg-opacity-25" style="width: 100% !important; overflow:hidden !important;" />
     <div class="container-fluid py-3 px-4 text-md-start   ">
@@ -99,7 +98,8 @@
             </div>
             <?php }else{?>
               <div class="dropdown">
-              <a class="btn  text-light" href="index.php?aktion=login" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+              <a class="btn  text-light" href="index.php?aktion=userSettings" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+              <i class="fa-solid fa-circle-user fa-2xl"></i>
               
               </a>
             </div>
@@ -158,8 +158,40 @@
     </div>
 
   </div>
+</head>
 
+<body>
 
 </body>
+<footer>
+<div class="container-fluid p-4 bg-primary ">
+    <div class="row ">
+      <div class="col-md-6 col-lg-5 col-xl-5 mb-4">
+        <h5 class="text-uppercase">Happy Dogs</h5>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+      <div class="col-md-6 col-lg-7 col-xl-7">
+        <h5 class="text-uppercase mb-4">Useful links</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#!" class="text-white">Conditions of Use</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Privacy Notice</a>
+          </li>
+          <li>
+            <a href="#!" class="text-white">Your Ads Privacy Choices</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="text-center p-3 bg-primary">
+    © 2023 Copyright:
+    <a class="text-white" href="https://www.happydogs.com/">www.happydogs.com</a>
+  </div>
 
+</footer>
 </html>

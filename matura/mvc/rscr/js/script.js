@@ -2,7 +2,7 @@
 if(document.cookie.indexOf('language=')===-1 ){
     setTimeout(() => {
         location.reload;
-    }, 500);
+    }, 1000);
 }
 const lang = navigator.language;
 document.cookie = "language=" + lang;

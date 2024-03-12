@@ -7,6 +7,9 @@ class IndexController extends AbstractBase
     public function home()
     {
     }
+    public function tryout()
+    {
+    }
     public function headerbg()
     {
     }
@@ -28,9 +31,10 @@ class IndexController extends AbstractBase
         }
         if ($user != null) {
             setcookie("user", $user, time() + 60 * 60, "./");
-            $this->setTemplate("headerbgAktion");
+            header("Location: index.php?aktion=headerbg");
+            
         }
-
+        
         $this->addContext("warning", $warning);
         $this->addContext("email", $email);
     }
@@ -273,6 +277,7 @@ class IndexController extends AbstractBase
                         $opes->speichere();
                     }
 
+                    
                     //to login
                     $this->addContext("email", "");
                     $this->setTemplate("loginAktion");
