@@ -7,6 +7,9 @@ class IndexController extends AbstractBase
     public function home()
     {
     }
+    public function userSettings(){
+        
+    }
     public function tryout()
     {
     }
