@@ -29,9 +29,9 @@
 
 
   <div class=" position-relative" style="overflow:hidden !important">
-  <img src="./rscr/img/bg.png" class="position-absolute bg-opacity-25" style="width: 100% !important; overflow:hidden !important;" />
-    <div class="container-fluid py-3 px-4 text-md-start   ">
-   
+    <img src="./rscr/img/bg.png" class="position-absolute bg-opacity-25" style="width: 100% !important; overflow:hidden !important;" />
+    <div class="container-fluid py-3 px-4 text-md-start" style="margin-bottom: 10rem">
+
       <div class="row">
         <div class="col">
           <img src="./rscr/img/Happy-Dogs logo.png" class="img-thumbnail position-relative bg-transparent border-0  w-logo" alt="Happy-Dogs-Logo">
@@ -43,34 +43,53 @@
               <a class="btn  text-light" href="#" role="button">
                 <h6>INFO</h6>
               </a>
-              <div class="dropdown-menu  bg-primary dp">
-                <a class="dropdown-item  bg-primary text-light" href="#">Action</a>
-                <a class="dropdown-item  bg-primary text-light" href="#">Another action</a>
-                <a class="dropdown-item  bg-primary text-light" href="#">Something else here</a>
+              <div class="dropdown-menu my-3 bg-primary dp">
+
+                <a class="header-dp-item dropdown-item  bg-primary text-light" href="?aktion=contactUs">CONTACT US</a>
+                <a class="header-dp-item dropdown-item  bg-primary text-light" href="?aktion=calander">CALANDER</a>
+                <a class="header-dp-item dropdown-item  bg-primary text-light" href="?aktion=whereAreWe">WHERE ARE WE</a>
+                <a class="header-dp-item dropdown-item  bg-primary text-light" href="?aktion=openingHours">OPENING HOURS</a>
+                <a class="header-dp-item dropdown-item  bg-primary text-light" href="?aktion=aboutUs">ABOUT US</a>
+                <a class="header-dp-item dropdown-item  bg-primary text-light" href="?aktion=licenseAndFormation">LICENSES AND FORMATION</a>
+                <a class="header-dp-item dropdown-item  bg-primary text-light" href="?aktion=conditionsOfService">CONDITIONS OF SERVICE</a>
               </div>
             </div>
           </div>
           <div class="nav-item px-1 py-3">
-            <div class="dropdown ">
-              <a class="btn  text-light" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+          <div class="dropdown text-md-center " id="dropdown2" onmouseover="hoverDropdown(2)" onmouseleave="hoverOutDropdown(2)">
+              <a class="btn  text-light" href="#" role="button">
                 <h6>PROGRAMMI</h6>
               </a>
-              <div class="dropdown-menu  bg-primary" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item  bg-primary text-light" href="#">Action</a>
-                <a class="dropdown-item  bg-primary text-light" href="#">Another action</a>
-                <a class="dropdown-item  bg-primary text-light" href="#">Something else here</a>
+              <!--
+                PROGRAMMI IN SINTESI
+                CONSULENZA E VALUTAZIONE
+                PROGRAMMI EDUCAZIONE E PUPPY
+                PROGRAMMI ATTIVITA SPORTIVE E LUDICHE 
+              -->
+              <div class="dropdown-menu  bg-primary my-3 dp">
+                <a class="header-dp-item dropdown-item  bg-primary text-light" href="#">PROGRAMMI IN SINTESI</a>
+                <a class="header-dp-item dropdown-item  bg-primary text-light" href="#">CONSULENZA E VALUTAZIONE</a>
+                <a class="header-dp-item dropdown-item  bg-primary text-light" href="#">PROGRAMMI EDUCAZIONE E PUPPY</a>
+                <a class="header-dp-item dropdown-item  bg-primary text-light" href="#">PROGRAMMI ATTIVITA SPORTIVE E LUDICHE</a>
               </div>
             </div>
           </div>
           <div class="nav-item px-0   py-3">
-            <div class="dropdown ">
-              <a class="btn text-light" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+          <div class="dropdown text-md-center " id="dropdown3" onmouseover="hoverDropdown(3)" onmouseleave="hoverOutDropdown(3)">
+              <a class="btn text-light" href="#" role="button">
                 <h6> MODULI/FORMULARE</h6>
               </a>
-              <div class="dropdown-menu  bg-primary" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item  bg-primary text-light" href="#">Action</a>
-                <a class="dropdown-item  bg-primary text-light" href="#">Another action</a>
-                <a class="dropdown-item  bg-primary text-light" href="#">Something else here</a>
+              <!-- 
+                ISCRIZIONE
+                ACCORDO DI SERVIZIO
+                MODULO PER DIPLOMI OPES
+                MODULO PER DIPLOMI OPES
+              -->
+              <div class="dropdown-menu  bg-primary my-3 dp">
+                <a class="header-dp-item dropdown-item  bg-primary text-light" href="#">ISCRIZIONE</a>
+                <a class="header-dp-item dropdown-item  bg-primary text-light" href="#">ACCORDO DI SERVIZIO</a>
+                <a class="header-dp-item dropdown-item  bg-primary text-light" href="#">MODULO PER DIPLOMI OPES</a>
+                <a class="header-dp-item dropdown-item  bg-primary text-light" href="#">MODULO PER DIPLOMI OPES</a>
               </div>
             </div>
           </div>
@@ -89,21 +108,21 @@
             </div>
           </div>
           <div class="nav-item  px-0 mx-2 py-3 pb-4">
-            <?php if(!isset($_COOKIE["user"])){ ?>
-              
-            <div class="dropdown border-3 border-white border  ">
-              <a class="btn  text-light" href="index.php?aktion=login" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
-                <h6 class="mb-0">LOGIN</h6>
-              </a>
-            </div>
-            <?php }else{?>
+            <?php if (!isset($_COOKIE["user"])) { ?>
+
+              <div class="dropdown border-3 border-white border  ">
+                <a class="btn  text-light" href="index.php?aktion=login" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                  <h6 class="mb-0">LOGIN</h6>
+                </a>
+              </div>
+            <?php } else { ?>
               <div class="dropdown">
-              <a class="btn  text-light" href="index.php?aktion=userSettings" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
-              <i class="fa-solid fa-circle-user fa-2xl"></i>
-              
-              </a>
-            </div>
-              <?php } ?>
+                <a class="btn  text-light" href="index.php?aktion=userSettings" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa-solid fa-circle-user fa-2xl"></i>
+
+                </a>
+              </div>
+            <?php } ?>
           </div>
         </div>
         <nav class="navbar navbar-dark d-flex d-md-none col-8 justify-content-end">
@@ -152,9 +171,12 @@
 
         </nav>
       </div>
-      <div class=" row bg-black py-3 px-4 text-md-start  position-relative bg-transparent">
-            <h1 class="  text-center text-white display-1 fw-bold opacity-100" >HAPPY DOGS</h1>
-        </div>
+      <div class=" row bg-black  text-md-start  position-relative bg-transparent" style="margin-bottom:-1rem; margin-top:5rem;">
+        <p class=" fst-italic fs-4 text-center text-white  opacity-100 pt-3">centro cinofilo</p>
+      </div>
+      <div class=" row bg-black pb-4 pt-1 px-4 text-md-start  position-relative bg-transparent">
+        <h1 class="  text-center text-white display-1 fw-bold opacity-100">HAPPY DOGS</h1>
+      </div>
     </div>
 
   </div>
@@ -165,4 +187,5 @@
 </body>
 <footer>
 </footer>
+
 </html>
