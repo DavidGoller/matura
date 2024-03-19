@@ -27,6 +27,9 @@
   <!--FavIcon-->
   <link rel="icon" type="image/x-icon" href="./rscr/img/favlogo.png">
 
+  <!--WhatsApp Iframe-->
+  <script defer src="https://widget.tochat.be/bundle.js?key=9c600faf-71c1-4b48-b534-4e2363075c39"></script>
+
 
   <div class=" position-relative" style="overflow:hidden !important">
     <img src="./rscr/img/bg.png" class="position-absolute bg-opacity-25" style="width: 100% !important; overflow:hidden !important;" />

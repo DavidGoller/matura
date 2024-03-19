@@ -24,7 +24,7 @@
   <script src="./rscr/js/script.js "></script>
   <!--FavIcon-->
   <link rel="icon" type="image/x-icon" href="./rscr/img/favlogo.png">
-
+  
 </head>
 <body>
   <div class=" bg-black ">

@@ -40,7 +40,7 @@ class IndexController extends AbstractBase
         }
         if ($user != null) {
             setcookie("user", $user, time() + 60 * 60, "./");
-            header("Location: index.php?aktion=headerbg");
+            header("Location: index.php?aktion=home");
             
         }
         
