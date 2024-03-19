@@ -30,14 +30,14 @@
 
   <div class=" position-relative" style="overflow:hidden !important">
     <img src="./rscr/img/bg.png" class="position-absolute bg-opacity-25" style="width: 100% !important; overflow:hidden !important;" />
-    <div class="container-fluid py-3 px-4 text-md-start" style="margin-bottom: 10rem">
+    <div class="container-fluid py-3 px-4 text-md-start banner" >
 
       <div class="row">
         <div class="col">
           <img src="./rscr/img/Happy-Dogs logo.png" class="img-thumbnail position-relative bg-transparent border-0  w-logo" alt="Happy-Dogs-Logo">
         </div>
 
-        <div class=" d-none d-md-flex col-md-9 navbar float-end justify-content-end py-2" style=" float:left">
+        <div class=" d-none d-lg-flex col-md-9 navbar float-end justify-content-end py-0 py-lg-2" style=" float:left">
           <div class="nav-item px-2 py-3">
             <div class="dropdown text-md-center " id="dropdown1" onmouseover="hoverDropdown(1)" onmouseleave="hoverOutDropdown(1)">
               <a class="btn  text-light" href="#" role="button">
@@ -125,12 +125,12 @@
             <?php } ?>
           </div>
         </div>
-        <nav class="navbar navbar-dark d-flex d-md-none col-8 justify-content-end">
+        <nav class="navbar navbar-dark d-flex d-lg-none  col-8 justify-content-end">
 
-          <button class="navbar-toggler custom-toggler active border-0" onclick="reset(0)" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <button class="navbar-toggler custom-toggler active border-0 px-sm-4 px-0" onclick="reset(0)" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon "></span>
           </button>
-          <div class="offcanvas offcanvas-end bg-primary w-50" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas offcanvas-end bg-dark w-50 fs-4  " tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
             <div class="offcanvas-header" data-bs-theme="dark">
               <button type="button" class="btn-close custom-toggler" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
@@ -146,7 +146,7 @@
                   <a class="nav-link active dropdown-toggle" id="wrapper1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-bs-animation="true">
                     <i class="fa-solid fa-plus arrow"></i> Dropdown
                   </a>
-                  <ul class="dropdown-menu bg-primary border-0" data-bs-animation="true">
+                  <ul class="dropdown-menu bg-dark fs-4 border-0" data-bs-animation="true">
                     <li><a class="dropdown-item text-white" href="#">Action</a></li>
                     <li><a class="dropdown-item text-white" href="#">Another action</a></li>
 
@@ -171,8 +171,8 @@
 
         </nav>
       </div>
-      <div class=" row bg-black  text-md-start  position-relative bg-transparent" style="margin-bottom:-1rem; margin-top:5rem;">
-        <p class=" fst-italic fs-4 text-center text-white  opacity-100 pt-3">centro cinofilo</p>
+      <div class=" row bg-black  text-md-start  position-relative bg-transparent title" >
+        <p class=" fst-italic fs-4 text-center text-white  opacity-100 pt-0 pt-lg-3">centro cinofilo</p>
       </div>
       <div class=" row bg-black pb-4 pt-1 px-4 text-md-start  position-relative bg-transparent">
         <h1 class="  text-center text-white display-1 fw-bold opacity-100">HAPPY DOGS</h1>

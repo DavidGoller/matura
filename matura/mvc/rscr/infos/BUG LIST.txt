@@ -1,0 +1,3 @@
+BUG LIST:
+1. Tapping out of Hamburger-Menu keeps fade on
+2. Tapping out of a Dropdown in the Header keeps the - instead of changing back to +

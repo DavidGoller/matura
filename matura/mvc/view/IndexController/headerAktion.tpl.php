@@ -36,7 +36,7 @@
           </a>
         </div>
 
-        <div class=" d-none d-lg-flex col-lg-9 navbar float-end justify-content-end py-2" style=" float:left">
+        <div class=" d-none d-lg-flex col-lg-9 navbar float-end justify-content-end py-0 py-lg-2" style=" float:left">
           <div class="nav-item px-2 py-3">
             <div class="dropdown text-md-center " id="dropdown1" onmouseover="hoverDropdown(1)" onmouseleave="hoverOutDropdown(1)">
               <a class="btn  text-light" href="#" role="button">

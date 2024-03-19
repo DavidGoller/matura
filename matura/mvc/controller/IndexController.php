@@ -16,6 +16,9 @@ class IndexController extends AbstractBase
     public function tryout()
     {
     }
+    public function header(){
+
+    }
     public function headerbg()
     {
     }
