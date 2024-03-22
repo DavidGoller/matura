@@ -16,7 +16,7 @@
   <div class="container-fluid px-4 py-4 bg-dark text-center">
     <div class="center text-centered  px-2 w-75 " >
       <div class="row">
-        <div class="col-lg-3 col-0 "></div>
+        <div class="col-lg-4 col-0 "></div>
         <div class="col-2 col-lg-1 mx-lg-0 mx-3 pb-3 pb-lg-0">
           <a href="mailto:happydogsbolzano@gmail.com">
             <div class="circle">
@@ -33,35 +33,22 @@
           </a>
         </div>
         <div class="col-2 col-lg-1 mx-lg-0 mx-3 pb-3 pb-lg-0">
-          <a href="https://www.pinterest.com/nesticoverena/">
+          <a href="https://www.tiktok.com/@happydogsbolzano?lang=en">
             <div class="circle">
-              <i class="fa-brands fa-pinterest-p fa-2xl text-dark centerV"></i>
+              <i class="fa-brands fa-tiktok fa-2xl text-dark centerV"></i>
             </div>
           </a>
         </div>
-        <div class="col-2 col-lg-1 mx-lg-0 mx-3">
-          <a href="https://twitter.com/happydogsbz">
-            <div class="circle">
-              <i class="fa-brands fa-x-twitter fa-2xl text-dark centerV"></i>
-            </div>
-          </a>
+        <div class="col-2 col-lg-auto mx-lg-0 mx-3 px-0">
         </div>
-        <div class="col-2 col-lg-1 mx-lg-0 mx-3">
+        <div class="col-2 col-lg-1 mx-lg-0  mx-3">
           <a href="https://www.instagram.com/happydogsbz/">
             <div class="circle">
               <i class="fa-brands fa-instagram fa-2xl text-dark centerV"></i>
             </div>
           </a>
         </div>
-        <div class="col-2 col-lg-1 mx-lg-0 mx-3">
-          <a href="https://www.youtube.com/channel/UCYqiVBJkAJ1-AQcH73MEdDA">
-            <div class="circle">
-              <i class="fa-brands fa-youtube fa-2xl text-dark centerV"></i>
-            </div>
-          </a>
-        </div>
 
-      </div>
     </div>
     <div class="center text-centered my-4 px-4 w-75 " style="height: 40vh" id="map"></div>
 

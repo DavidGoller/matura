@@ -47,7 +47,7 @@
         <div class="progress-bar bg-primary progress-bar-striped border border-light border-opacity-10" role="progressbar" style="width:33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
         <div class="bg-primary overflow-visible ">
           <!--<img class="" src="checkpoints.png" style="height: 300% !important; margin-top: -2rem; margin-left: -1.5rem;">-->
-          <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important;  color:#41260c"></i>
+          <i class="fa-solid fa-dog fa-4x" style="height: 300% !important;margin-top: -2rem !important;  color:#726b65"></i>
         </div>
       <?php } ?>
 
@@ -213,7 +213,7 @@
     <div id="buttonOpes" class="row my-2 mx-5">
       <div class="col-lg-2 col-0"></div>
       <div class="col-lg-4 col-12 ">
-        <input class="btn btn-primary btn-lg" type="button" value="Add OPES credentials" onclick="createOPES()" id="buttonOpesbutton" />
+        <input class="btn btn-primary btn-lg" type="button" value="Add Membership credentials" onclick="createOPES()" id="buttonOpesbutton" />
 
       </div>
     </div>

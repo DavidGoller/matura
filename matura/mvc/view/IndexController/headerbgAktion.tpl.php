@@ -14,7 +14,6 @@
 
   <!-- jQuery library -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
   <!-- Bootstrap JavaScript -->
   <script src="./rscr/js/bootstrap.bundle.js"></script>
 
@@ -31,7 +30,7 @@
   <script defer src="https://widget.tochat.be/bundle.js?key=9c600faf-71c1-4b48-b534-4e2363075c39"></script>
 
 
-  <div class=" position-relative" style="overflow:hidden !important">
+  <div class=" position-relative bg-dark" style="overflow:hidden !important">
     <img src="./rscr/img/bg.png" class="position-absolute bg-opacity-25" style="width: 100% !important; overflow:hidden !important;" />
     <div class="container-fluid py-3 px-4 text-md-start banner" >
 
@@ -44,7 +43,7 @@
           <div class="nav-item px-2 py-3">
             <div class="dropdown text-md-center " id="dropdown1" onmouseover="hoverDropdown(1)" onmouseleave="hoverOutDropdown(1)">
               <a class="btn  text-light" href="#" role="button">
-                <h6>INFO</h6>
+                <p class="fs-6 topper">INFO</p>
               </a>
               <div class="dropdown-menu my-3 bg-primary dp">
 
@@ -61,7 +60,7 @@
           <div class="nav-item px-1 py-3">
           <div class="dropdown text-md-center " id="dropdown2" onmouseover="hoverDropdown(2)" onmouseleave="hoverOutDropdown(2)">
               <a class="btn  text-light" href="#" role="button">
-                <h6>PROGRAMMI</h6>
+                <p class="fs-6 topper">PROGRAMMI</p>
               </a>
               <!--
                 PROGRAMMI IN SINTESI
@@ -69,7 +68,7 @@
                 PROGRAMMI EDUCAZIONE E PUPPY
                 PROGRAMMI ATTIVITA SPORTIVE E LUDICHE 
               -->
-              <div class="dropdown-menu  bg-primary my-3 dp">
+              <div class="dropdown-menu  bg-primary my-1 dp">
                 <a class="header-dp-item dropdown-item  bg-primary text-light" href="#">PROGRAMMI IN SINTESI</a>
                 <a class="header-dp-item dropdown-item  bg-primary text-light" href="#">CONSULENZA E VALUTAZIONE</a>
                 <a class="header-dp-item dropdown-item  bg-primary text-light" href="#">PROGRAMMI EDUCAZIONE E PUPPY</a>
@@ -80,7 +79,7 @@
           <div class="nav-item px-0   py-3">
           <div class="dropdown text-md-center " id="dropdown3" onmouseover="hoverDropdown(3)" onmouseleave="hoverOutDropdown(3)">
               <a class="btn text-light" href="#" role="button">
-                <h6> MODULI/FORMULARE</h6>
+                <p class="fs-6 topper"> MODULI/FORMULARE</p>
               </a>
               <!-- 
                 ISCRIZIONE
@@ -88,7 +87,7 @@
                 MODULO PER DIPLOMI OPES
                 MODULO PER DIPLOMI OPES
               -->
-              <div class="dropdown-menu  bg-primary my-3 dp">
+              <div class="dropdown-menu  bg-primary my-1 dp">
                 <a class="header-dp-item dropdown-item  bg-primary text-light" href="#">ISCRIZIONE</a>
                 <a class="header-dp-item dropdown-item  bg-primary text-light" href="#">ACCORDO DI SERVIZIO</a>
                 <a class="header-dp-item dropdown-item  bg-primary text-light" href="#">MODULO PER DIPLOMI OPES</a>
@@ -99,23 +98,23 @@
           <div class="nav-item  px-0 mx-2  py-3">
             <div class="dropdown ">
               <a class="btn text-light" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
-                <h6>EVENTS</h6>
+                <p class="fs-6 topper">EVENTS</p>
               </a>
             </div>
           </div>
           <div class="nav-item  px-0 mx-2 py-3">
             <div class="dropdown ">
               <a class="btn  text-light" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
-                <h6>IN MEMORIAM</h6>
+                <p class="fs-6 topper">IN MEMORIAM</p>
               </a>
             </div>
           </div>
-          <div class="nav-item  px-0 mx-2 py-3 pb-4">
+          <div class="nav-item  px-0 mx-2 py-2 pb-4">
             <?php if (!isset($_COOKIE["user"])) { ?>
 
               <div class="dropdown border-3 border-white border  ">
                 <a class="btn  text-light" href="index.php?aktion=login" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
-                  <h6 class="mb-0">LOGIN</h6>
+                  <p class="mb-0 fs-6 topper">LOGIN</p>
                 </a>
               </div>
             <?php } else { ?>
@@ -175,10 +174,10 @@
         </nav>
       </div>
       <div class=" row bg-black  text-md-start  position-relative bg-transparent title" >
-        <p class=" fst-italic fs-4 text-center text-white  opacity-100 pt-0 pt-lg-3">centro cinofilo</p>
+        <p class="important fst-italic fs-4 text-center text-white  opacity-100 pt-0 pt-lg-3">centro cinofilo</p>
       </div>
       <div class=" row bg-black pb-4 pt-1 px-4 text-md-start  position-relative bg-transparent">
-        <h1 class="  text-center text-white display-1 fw-bold opacity-100">HAPPY DOGS</h1>
+        <h1 class="tit text-center text-white display-1 fw-bold opacity-100">HAPPY DOGS</h1>
       </div>
     </div>
 

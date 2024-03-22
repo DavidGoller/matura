@@ -149,7 +149,7 @@
 
 .header-dp-item:hover {
 
-  background-color: #724d27 !important;
+  background-color: var(--bs-secondary) !important;
 }
 
 .title {
@@ -169,4 +169,13 @@
     margin-bottom: 5% !important;
     text-align: center;
   }
+}
+.important{
+  font-family: var(--bs-title-font);
+}
+.topper{
+  font-family: var(--bs-font-sans-serif) !important;
+}
+.tit{
+  font-family: var(--bs-font-title-font) !important;
 }

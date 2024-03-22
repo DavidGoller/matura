@@ -331,9 +331,6 @@ function createOPES() {
 
     const headerDivRow = document.createElement("div");
     headerDivRow.classList.add("col-lg-2", "col-0");
-    const headerLabel = document.createElement("label");
-    headerLabel.classList.add("form-label", "h3", "col")
-    headerLabel.innerHTML = "OPES Credentials";
 
     const headerDiv2 = document.createElement("div");
     headerDiv2.classList.add("row", "my-2", "mx-5");
@@ -343,8 +340,8 @@ function createOPES() {
     const headerDiv2Row2 = document.createElement("div");
     headerDiv2Row2.classList.add("col-lg-4", "col-12");
     const label1 = document.createElement("label");
-    label1.classList.add("form-label", "h3");
-    label1.innerHTML = "OPES Card Number";
+    label1.classList.add("form-label", "h4");
+    label1.innerHTML = "Membership Card Number";
     const input1 = document.createElement("input");
     input1.classList.add("form-control", "h3");
     input1.setAttribute('type', 'type');
@@ -380,7 +377,7 @@ function createOPES() {
     headerDiv2.append(headerDiv2Row4);
 
     headerDiv.append(headerDivRow);
-    headerDiv.append(headerLabel);
+
     outline.append(headerDiv);
 
     outline.append(headerDiv2);
