@@ -11,6 +11,8 @@ class IndexController extends AbstractBase
 
     }
     public function userSettings(){
+       $user=$_COOKIE["user"];
+       $this-> addContext("user",$user);
         
     }
     public function tryout()
@@ -128,6 +130,9 @@ class IndexController extends AbstractBase
                         $warning = "Phone number can only contain numbers.";
                     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && $warning == "") {
                         $warning = "Invalid email format.";
+                    }
+                    else if(User::findeNachEmail($email)!=null){
+                        $warning= "This email is already registered. Please use another one.";
                     }
                     if ($warning != "") {
 

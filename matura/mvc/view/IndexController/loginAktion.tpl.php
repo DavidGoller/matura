@@ -59,12 +59,12 @@
               <h3 class="mb-lg-5 mb-md-2 mb-5">Log in</h3>
               <form action="index.php?aktion=login" method="post">
                 <div class="form-outline mb-4 mb-lg-4 mb-md-2">
-                  <input type="email" id="typeEmailX-2" class="form-control form-control-lg"  name="email" value="<?= $email?>"/>
+                  <input type="email" id="typeEmailX-2" class="form-control form-control-lg" required  name="email" value="<?= $email?>"/>
                   <label class="form-label" for="typeEmailX-2">Email</label>
                 </div>
 
                 <div class="form-outline mb-4 mb-lg-4 mb-md-2">
-                  <input type="password" id="typePasswordX-2" class="form-control form-control-lg" name="password"/>
+                  <input type="password" id="typePasswordX-2" class="form-control form-control-lg" required name="password"/>
                   <label class="form-label" for="typePasswordX-2">Password</label>
                 </div>
 
