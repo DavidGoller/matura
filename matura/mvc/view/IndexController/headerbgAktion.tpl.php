@@ -31,12 +31,12 @@
 
 
   <div class=" position-relative bg-dark" style="overflow:hidden !important">
-    <img src="./rscr/img/bg.png" class="position-absolute bg-opacity-25" style="width: 100% !important; overflow:hidden !important;" />
+    <img src="./rscr/img/bg.png" class="position-absolute bg-opacity-25 fit"  />
     <div class="container-fluid py-3 px-4 text-md-start banner" >
 
       <div class="row">
         <div class="col">
-          <img src="./rscr/img/Happy-Dogs logo.png" class="img-thumbnail position-relative bg-transparent border-0  w-logo" alt="Happy-Dogs-Logo">
+          <img src="./rscr/img/Happy-Dogs logo.png" class="img-thumbnail position-relative bg-transparent border-0  w-logo " alt="Happy-Dogs-Logo">
         </div>
 
         <div class=" d-none d-lg-flex col-md-9 navbar float-end justify-content-end py-0 py-lg-2" style=" float:left">
@@ -119,7 +119,7 @@
               </div>
             <?php } else { ?>
               <div class="dropdown">
-                <a class="btn  text-light" href="index.php?aktion=userSettings" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                <a class="btn  text-light" href="index.php?aktion=userSettings&email=<?=json_decode($_COOKIE["user"])->email?>" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
                   <i class="fa-solid fa-circle-user fa-2xl"></i>
 
                 </a>

@@ -12,11 +12,17 @@
 }
 
 
+.fit {
+  height: 100%;
+  width: 100%;
+  overflow: hidden !important;
+}
 
-  .w-logo {
-    width: 10rem !important;
+.w-logo {
 
-  }
+  width: 10rem !important;
+
+}
 
 
 .custom-toggler.navbar-toggler {
@@ -156,7 +162,8 @@
   margin-bottom: -4vh;
   margin-top: 2vh !important;
 }
-.banner{
+
+.banner {
   margin-bottom: 10% !important;
 }
 
@@ -165,17 +172,21 @@
     margin-bottom: -3vh;
     margin-top: 10vh !important;
   }
-  .banner{
+
+  .banner {
     margin-bottom: 5% !important;
     text-align: center;
   }
 }
-.important{
+
+.important {
   font-family: var(--bs-title-font);
 }
-.topper{
+
+.topper {
   font-family: var(--bs-font-sans-serif) !important;
 }
-.tit{
+
+.tit {
   font-family: var(--bs-font-title-font) !important;
 }

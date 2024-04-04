@@ -7,19 +7,31 @@ class IndexController extends AbstractBase
     public function home()
     {
     }
-    public function footer(){
-
+    public function footer()
+    {
     }
-    public function userSettings(){
-       $user=$_COOKIE["user"];
-       $this-> addContext("user",$user);
-        
+    public function userSettings()
+    {
+        $user = new User;
+        if (isset($_POST["user"])) {
+            $user = User::findeNachEmail($_POST['user']);
+            $user->setFirstname($_POST['firstname']);
+            $user->setLastname($_POST['lastname']);
+            $user->setEmail($_POST['email']);
+            $user->setPhone($_POST['phone']);
+            $user->speichere();
+           
+        }
+        elseif (isset($_GET['email'])) {
+            $user = User::findeNachEmail($_GET['email']);
+        }
+        $this->addContext("user", $user);
     }
     public function tryout()
     {
     }
-    public function header(){
-
+    public function header()
+    {
     }
     public function headerbg()
     {
@@ -43,9 +55,8 @@ class IndexController extends AbstractBase
         if ($user != null) {
             setcookie("user", $user, time() + 60 * 60, "./");
             header("Location: index.php?aktion=home");
-            
         }
-        
+
         $this->addContext("warning", $warning);
         $this->addContext("email", $email);
     }
@@ -130,9 +141,8 @@ class IndexController extends AbstractBase
                         $warning = "Phone number can only contain numbers.";
                     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL) && $warning == "") {
                         $warning = "Invalid email format.";
-                    }
-                    else if(User::findeNachEmail($email)!=null){
-                        $warning= "This email is already registered. Please use another one.";
+                    } else if (User::findeNachEmail($email) != null) {
+                        $warning = "This email is already registered. Please use another one.";
                     }
                     if ($warning != "") {
 
@@ -291,7 +301,7 @@ class IndexController extends AbstractBase
                         $opes->speichere();
                     }
 
-                    
+
                     //to login
                     $this->addContext("email", "");
                     $this->setTemplate("loginAktion");

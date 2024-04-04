@@ -3,10 +3,7 @@
 
 <head>
   <title>Home</title>
-  <?php
-  include("headerbgAktion.tpl.php");
 
-  ?>
   <!-- Bootstrap CSS v5.2.1 -->
   <link href="./view/css/strapless.css" rel="stylesheet" />
   <link href="./view/css/style.css" rel="stylesheet" />
@@ -17,9 +14,14 @@
 
   <!-- Bootstrap JavaScript -->
   <script src="./rscr/js/bootstrap.bundle.js"></script>
+  <?php
+  include("headerbgAktion.tpl.php");
+
+  ?>
 </head>
 
 <body>
+
   <div class="container my-0 my-lg-5 px-lg-5 px-1">
     <div class="row my-2 my-lg-5  px-5 fs-4 text-center text-secondary">
       <p>In questo momento il tuo cane sta causando un po' di caos nella tua vita invece di essere un'aggiunta divertente alla tua famiglia….</p>
