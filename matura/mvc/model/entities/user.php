@@ -5,7 +5,6 @@ class User
 
     use ActiveRecordable, Deletable, Findable, Persistable;
     private int $id = 0;
-    private $usercol; //!BITTE ENTFERNEN
     private string $firstname = "";
     private string $lastname = "";
     private string $codicefiscale ="";

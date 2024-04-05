@@ -106,6 +106,15 @@
               </a>
             </div>
           </div>
+          <?php if (isset($_COOKIE["user"])) { ?>
+          <div class="nav-item  px-0 mx-2 py-3">
+            <div class="dropdown ">
+              <a class="btn  text-light" href="#" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                <p class="fs-6 topper">MY DOGS</p>
+              </a>
+            </div>
+          </div>
+          <?php } ?>
           <div class="nav-item  px-0 mx-2 py-2 pb-4">
             <?php if (!isset($_COOKIE["user"])) { ?>
 

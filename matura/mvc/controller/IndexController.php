@@ -330,4 +330,10 @@ class IndexController extends AbstractBase
         $this->addContext("family", $family);
         $this->addContext("opes", $opes);
     }
+    public function contactUs(){
+        
+    }
+    public function myDogs(){
+        
+    }
 }

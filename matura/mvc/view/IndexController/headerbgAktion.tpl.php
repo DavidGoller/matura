@@ -31,8 +31,8 @@
 
 
   <div class=" position-relative bg-dark" style="overflow:hidden !important">
-    <img src="./rscr/img/bg.png" class="position-absolute bg-opacity-25 fit"  />
-    <div class="container-fluid py-3 px-4 text-md-start banner" >
+    <img src="./rscr/img/bg.png" class="position-absolute bg-opacity-25 fit" />
+    <div class="container-fluid py-3 px-4 text-md-start banner">
 
       <div class="row">
         <div class="col">
@@ -58,7 +58,7 @@
             </div>
           </div>
           <div class="nav-item px-1 py-3">
-          <div class="dropdown text-md-center " id="dropdown2" onmouseover="hoverDropdown(2)" onmouseleave="hoverOutDropdown(2)">
+            <div class="dropdown text-md-center " id="dropdown2" onmouseover="hoverDropdown(2)" onmouseleave="hoverOutDropdown(2)">
               <a class="btn  text-light" href="#" role="button">
                 <p class="fs-6 topper">PROGRAMMI</p>
               </a>
@@ -77,7 +77,7 @@
             </div>
           </div>
           <div class="nav-item px-0   py-3">
-          <div class="dropdown text-md-center " id="dropdown3" onmouseover="hoverDropdown(3)" onmouseleave="hoverOutDropdown(3)">
+            <div class="dropdown text-md-center " id="dropdown3" onmouseover="hoverDropdown(3)" onmouseleave="hoverOutDropdown(3)">
               <a class="btn text-light" href="#" role="button">
                 <p class="fs-6 topper"> MODULI/FORMULARE</p>
               </a>
@@ -109,6 +109,15 @@
               </a>
             </div>
           </div>
+          <?php if (isset($_COOKIE["user"])) { ?>
+            <div class="nav-item  px-0 mx-2 py-3">
+              <div class="dropdown ">
+                <a class="btn  text-light" href="index.php?aktion=mydogs" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                  <p class="fs-6 topper">MY DOGS</p>
+                </a>
+              </div>
+            </div>
+          <?php } ?>
           <div class="nav-item  px-0 mx-2 py-2 pb-4">
             <?php if (!isset($_COOKIE["user"])) { ?>
 
@@ -119,7 +128,7 @@
               </div>
             <?php } else { ?>
               <div class="dropdown">
-                <a class="btn  text-light" href="index.php?aktion=userSettings&email=<?=json_decode($_COOKIE["user"])->email?>" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
+                <a class="btn  text-light" href="index.php?aktion=userSettings&email=<?= json_decode($_COOKIE["user"])->email ?>" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false">
                   <i class="fa-solid fa-circle-user fa-2xl"></i>
 
                 </a>
@@ -173,7 +182,7 @@
 
         </nav>
       </div>
-      <div class=" row bg-black  text-md-start  position-relative bg-transparent title" >
+      <div class=" row bg-black  text-md-start  position-relative bg-transparent title">
         <p class="important fst-italic fs-4 text-center text-white  opacity-100 pt-0 pt-lg-3">centro cinofilo</p>
       </div>
       <div class=" row bg-black pb-4 pt-1 px-4 text-md-start  position-relative bg-transparent">
