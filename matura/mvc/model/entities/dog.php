@@ -277,4 +277,12 @@ class Dog{
         $this->birthdate = date("d-m-y",$birthdate);
         return $this;
     }
+    public static function findDogByUserID(int $id) {
+        $sql = "SELECT d.* FROM dog as d"
+                . " WHERE d.uid =:user_id";
+        $abfrage = DB::getDB()->prepare($sql);
+        $abfrage->execute(array('user_id' => $id));
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Dog');
+        return $abfrage->fetchAll();
+    }
 }

@@ -334,6 +334,22 @@ class IndexController extends AbstractBase
         
     }
     public function myDogs(){
+       
+        if (!isset($_COOKIE["user"])){
+            $this->setTemplate("homeAktion");
+            
+        }
+        $dogs = [];
+        if (isset($_GET['email'])) {
+            $user = User::findeNachEmail($_GET['email']);
+            $dog = Dog::findDogByUserID($user->getId());
+            $dogs[] = $dog;
+        }
+        $this->addContext("dogs", $dogs);
         
+    }
+    public function editDog(){
+        $warning = "";
+        $this->addContext("warning", $warning);
     }
 }
