@@ -40,59 +40,47 @@
           <div class="row my-2 mx-5">
             <div class=" col-lg-2 col-0"></div>
             <div class="col-lg-4 col-12 ">
-              <label class="form-label h3 " for="firstname">Firstname</label><br>
-              <input class="form-control h3" type="type" id="firstname" name="firstname" required>
+              <label class="form-label h3 " for="name">Dogname</label><br>
+              <input class="form-control h3" type="type" id="name" name="name" required>
             </div>
             <div class="col-lg-1 col-0"></div>
             <div class="col-lg-4 col-12">
-              <label class="form-label h3" for="lastname">Lastname</label><br>
-              <input class="form-control h3" type="type" id="lastname" name="lastname" required>
+              <label class="form-label h3" for="microchip">Microchip</label><br>
+              <input class="form-control h3" type="type" id="microchip" name="microchip" required>
             </div>
           </div>
           <div class="row my-2 mx-5">
             <div class=" col-lg-2 col-0"></div>
             <div class="col-lg-9">
-              <label class="form-label h3" for="codicefiscale">Codice fiscale</label><br>
-              <input class="form-control h3" type="type" id="codicefiscale" name="codicefiscale" required>
+              <label class="form-label h3" for="breed">Breed</label><br>
+              <input class="form-control h3" type="type" id="breed" name="breed" required>
             </div>
           </div>
           <div class="row my-2 mx-5">
             <div class="col-lg-2"></div>
             <div class="col-lg-4 col-12 ">
-              <label class="form-label h3" for="email">E-mail</label><br>
-              <input class="form-control h3" type="type" id="email" name="email" required>
+              <label class="form-label h3" for="birthdate">Birthdate</label><br>
+              <input class="form-control h3" type="type" id="birthdate" name="birthdate" required>
             </div>
             <div class="col-lg-1 col-0"></div>
-            <div class="col-lg-1 col-4">
-              <label for="prefix" class="form-label h3">Prefix</label>
-              <input class="form-control h3" list="prefixList" name="prefix" id="prefix" required>
-              <datalist id="prefixList">
-                <option value="+39">
-                <option value="+49">
-                <option value="+43">
-                <option value="+41">
-              </datalist>
-            </div>
-            <div class="col-lg-3 col ">
-              <label class="form-label h3" for="phone">Phone</label><br>
-              <input class="form-control h3" type="type" id="phone" name="phone" required>
+            <div class="col-lg-4 col ">
+              <label class="form-label h3" for="adoption_date">Adoption date</label><br>
+              <input class="form-control h3" type="type" id="adoption_date" name="adoption_date" required>
             </div>
           </div>
           <div class="row my-2 mx-5">
-            <div class="col-lg-2 col-0"></div>
-            <div class="col-lg-4 col-12">
-              <label class="form-label h3" for="password">Password</label><br>
-              <input class="form-control h3" type="password" id="password" name="password" required>
-            </div>
-          </div>
-          <div class="row my-2 mx-5">
-            <div class="col-lg-2 col-0"></div>
+            <div class="col-lg-2"></div>
             <div class="col-lg-4 col-12 ">
-              <label class="form-label h3" for="confirmpassword">Confirm Password</label><br>
-              <input class="form-control h3" type="password" id="confirmpassword" name="confirmpassword" required>
-
+              <label class="form-label h3" for="gender">Gender</label><br>
+              <input class="form-control h3" type="type" id="gender" name="gender" required>
+            </div>
+            <div class="col-lg-1 col-0"></div>
+            <div class="col-lg-4 col ">
+              <label class="form-label h3" for="orgin">Oorginrgin</label><br>
+              <input class="form-control h3" type="type" id="orgin" name="orgin" required>
             </div>
           </div>
+          //!DIDNT FINISH
           <input type="hidden" name="lid" value="getBrowserLang()">
           <input type="hidden" name="step" value=1>
 
