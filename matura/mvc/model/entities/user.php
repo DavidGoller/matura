@@ -62,7 +62,7 @@ class User
      */
     public function setEmail($email): self
     {
-        $this->email = $email;
+        $this->email = trim($email);
         return $this;
     }
 
@@ -127,6 +127,14 @@ class User
     public function getId(): int {
         return $this->id;
     }
+    
+    public function setId($id): self
+    {
+        $this->id = $id;
+        return $this;
+    }
+
+
 
 
     /**

@@ -31,7 +31,7 @@
     <div class="container-fluid py-3 px-4 text-lg-start  bg-primary  ">
       <div class="row">
         <div class="col">
-          <a href="index.php?aktion=headerbg">
+          <a href="index.php?aktion=home">
             <img src="./rscr/img/Happy-Dogs logo.png" class="bg-primary img-thumbnail border-primary w-logo" alt="Happy-Dogs-Logo">
           </a>
         </div>

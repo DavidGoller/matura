@@ -1,28 +1,48 @@
 <?php
-class Dog{
+class Dog
+{
+    use ActiveRecordable, Deletable, Findable, Persistable;
     protected static $table = 'dog';
     private int $id = 0;
-    public string $name = "";
-    public int $microchip = 0;
-    public string $breed = "";
-    public string $birthdate;
-    public string $gender = "";
-    public string $adoption_date = "";
-    public string $orgin = "";
-    public bool $sterilized = "";
-    public string $vet = "";
-    public string $info = "";
-    public string $behaviour = "";
-    public int $UID = 0;
+    private string $name = "";
+    private string $microchip = "";
+    private string $breed = "";
+    private string $birthdate = "";
+    private string $gender = "";
+    private string $adoption_date = "";
+    private string $origin = "";
+    private bool $sterilized = false;
+    private string $vet = "";
+    private string $info = "";
+    private string $behaviour = "";
+    private int $uid = 0;
 
 
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of name
+     *
+     * @param string $name
+     *
+     * @return self
+     */
+    public function setId(int $id): self
+    {
+        $this->id = $id;
+        return $this;
+    }
 
     /**
      * Get the value of name
      *
      * @return string
      */
-    public function getName(): string {
+    public function getName(): string
+    {
         return $this->name;
     }
 
@@ -33,7 +53,8 @@ class Dog{
      *
      * @return self
      */
-    public function setName(string $name): self {
+    public function setName(string $name): self
+    {
         $this->name = $name;
         return $this;
     }
@@ -43,7 +64,8 @@ class Dog{
      *
      * @return int
      */
-    public function getMicrochip(): int {
+    public function getMicrochip(): string
+    {
         return $this->microchip;
     }
 
@@ -54,7 +76,8 @@ class Dog{
      *
      * @return self
      */
-    public function setMicrochip(int $microchip): self {
+    public function setMicrochip(string $microchip): self
+    {
         $this->microchip = $microchip;
         return $this;
     }
@@ -64,7 +87,8 @@ class Dog{
      *
      * @return string
      */
-    public function getBreed(): string {
+    public function getBreed(): string
+    {
         return $this->breed;
     }
 
@@ -75,7 +99,8 @@ class Dog{
      *
      * @return self
      */
-    public function setBreed(string $breed): self {
+    public function setBreed(string $breed): self
+    {
         $this->breed = $breed;
         return $this;
     }
@@ -85,7 +110,8 @@ class Dog{
      *
      * @return string
      */
-    public function getGender(): string {
+    public function getGender(): string
+    {
         return $this->gender;
     }
 
@@ -96,7 +122,8 @@ class Dog{
      *
      * @return self
      */
-    public function setGender(string $gender): self {
+    public function setGender(string $gender): self
+    {
         $this->gender = $gender;
         return $this;
     }
@@ -106,7 +133,8 @@ class Dog{
      *
      * @return string
      */
-    public function getAdoptionDate(): string {
+    public function getAdoptionDate(): string
+    {
         return $this->adoption_date;
     }
 
@@ -117,29 +145,36 @@ class Dog{
      *
      * @return self
      */
-    public function setAdoptionDate($adoption_date): self {
-        $this->adoption_date = date("d-m-y",$adoption_date);
+    public function setAdoptionDate($adoption_date): self
+    {
+        if ($adoption_date instanceof DateTime) {
+            $this->adoption_date = date("d-m-y", $adoption_date);
+        }else{
+            $this->adoption_date=$adoption_date;
+        }
         return $this;
     }
 
     /**
-     * Get the value of orgin
+     * Get the value of origin
      *
      * @return string
      */
-    public function getOrgin(): string {
-        return $this->orgin;
+    public function getOrigin(): string
+    {
+        return $this->origin;
     }
 
     /**
-     * Set the value of orgin
+     * Set the value of origin
      *
-     * @param string $orgin
+     * @param string $origin
      *
      * @return self
      */
-    public function setOrgin(string $orgin): self {
-        $this->orgin = $orgin;
+    public function setOrigin(string $origin): self
+    {
+        $this->origin = $origin;
         return $this;
     }
 
@@ -148,7 +183,8 @@ class Dog{
      *
      * @return bool
      */
-    public function getSterilized(): bool {
+    public function getSterilized(): bool
+    {
         return $this->sterilized;
     }
 
@@ -159,8 +195,13 @@ class Dog{
      *
      * @return self
      */
-    public function setSterilized(bool $sterilized): self {
-        $this->sterilized = $sterilized;
+    public function setSterilized(string $check): self
+    {
+        if ($check =="on") {
+            $this->sterilized = 1;
+        } else {
+            $this->sterilized = 0;
+        }
         return $this;
     }
 
@@ -169,7 +210,8 @@ class Dog{
      *
      * @return string
      */
-    public function getVet(): string {
+    public function getVet(): string
+    {
         return $this->vet;
     }
 
@@ -180,7 +222,8 @@ class Dog{
      *
      * @return self
      */
-    public function setVet(string $vet): self {
+    public function setVet(string $vet): self
+    {
         $this->vet = $vet;
         return $this;
     }
@@ -190,7 +233,8 @@ class Dog{
      *
      * @return string
      */
-    public function getInfo(): string {
+    public function getInfo(): string
+    {
         return $this->info;
     }
 
@@ -201,7 +245,8 @@ class Dog{
      *
      * @return self
      */
-    public function setInfo(string $info): self {
+    public function setInfo(string $info): self
+    {
         $this->info = $info;
         return $this;
     }
@@ -211,7 +256,8 @@ class Dog{
      *
      * @return string
      */
-    public function getBehaviour(): string {
+    public function getBehaviour(): string
+    {
         return $this->behaviour;
     }
 
@@ -222,27 +268,22 @@ class Dog{
      *
      * @return self
      */
-    public function setBehaviour(string $behaviour): self {
+    public function setBehaviour(string $behaviour): self
+    {
         $this->behaviour = $behaviour;
         return $this;
     }
 
-    /**
-     * Get the value of id
-     *
-     * @return int
-     */
-    public function getId(): int {
-        return $this->id;
-    }
+
 
     /**
      * Get the value of UId
      *
      * @return int
      */
-    public function getUID(): int {
-        return $this->UID;
+    public function getUid(): int
+    {
+        return $this->uid;
     }
 
     /**
@@ -252,8 +293,9 @@ class Dog{
      *
      * @return self
      */
-    public function setUId(int $UID): self {
-        $this->UID = $UID;
+    public function setUId(int $uid): self
+    {
+        $this->uid = $uid;
         return $this;
     }
 
@@ -262,7 +304,8 @@ class Dog{
      *
      * @return string
      */
-    public function getBirthdate(): string {
+    public function getBirthdate(): string
+    {
         return $this->birthdate;
     }
 
@@ -273,13 +316,19 @@ class Dog{
      *
      * @return self
      */
-    public function setBirthdate(string $birthdate): self {
-        $this->birthdate = date("d-m-y",$birthdate);
+    public function setBirthdate($birthdate): self
+    {
+        if($birthdate instanceof DateTime){
+        $this->birthdate = date("d-m-y", $birthdate);
+        }else{
+            $this->birthdate=$birthdate;
+        }    
         return $this;
     }
-    public static function findDogByUserID(int $id) {
+    public static function findDogByUserID(int $id)
+    {
         $sql = "SELECT d.* FROM dog as d"
-                . " WHERE d.uid =:user_id";
+            . " WHERE d.uid =:user_id";
         $abfrage = DB::getDB()->prepare($sql);
         $abfrage->execute(array('user_id' => $id));
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Dog');

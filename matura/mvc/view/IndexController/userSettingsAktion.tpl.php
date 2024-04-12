@@ -56,12 +56,21 @@
         <label for="phone" class="form-label">Phone</label>
         <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $user->getPhone(); ?>">
       </div>
-      <input type="hidden" id="user" name="user" value="<?=$user->getEmail() ?>">
-      <div class="d-flex justify-content-center  col px-lg-0 w-100">
-        <input class="btn btn-primary btn-lg" type="submit" value="Save Changes" />
+      <input type="hidden" id="user" name="user" value="<?= $user->getEmail() ?>">
+      <div class="d-flex justify-content-center  col px-lg-0 w-100"> 
+        <input class="btn btn-primary btn-lg " type="submit" value="Save Changes" />
+        <div class="mx-3">
+          <a href="index.php?aktion=logout">
+            <button type="button" class="btn btn-danger btn-lg ">Logout</button>
+          </a>
+        </div>
       </div>
+
     </div>
   </form>
+
+
+
 
 </body>
 

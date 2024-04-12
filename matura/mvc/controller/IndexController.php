@@ -20,9 +20,7 @@ class IndexController extends AbstractBase
             $user->setEmail($_POST['email']);
             $user->setPhone($_POST['phone']);
             $user->speichere();
-           
-        }
-        elseif (isset($_GET['email'])) {
+        } elseif (isset($_GET['email'])) {
             $user = User::findeNachEmail($_GET['email']);
         }
         $this->addContext("user", $user);
@@ -53,7 +51,7 @@ class IndexController extends AbstractBase
             }
         }
         if ($user != null) {
-            setcookie("user", $user, time() + 60 * 60, "./");
+            setcookie("user", $user, time() + 60 * 60* 48, "./");
             header("Location: index.php?aktion=home");
         }
 
@@ -69,10 +67,10 @@ class IndexController extends AbstractBase
             if ($user->getPassword() == md5($paswd)) {
                 $erg = $user;
             } else {
-                $erg = "fehler: falsches Passwort!";
+                $erg = "Fehler: falsches Passwort!";
             }
         } else {
-            $erg = "fehler: Kein Benutzer mit dieser E-Mail gefunden.";
+            $erg = "Fehler: Kein Benutzer mit dieser E-Mail gefunden.";
         }
 
 
@@ -117,6 +115,7 @@ class IndexController extends AbstractBase
                 case 0:
                     break;
                 case 1:
+
                     $lastname = trim($_POST["lastname"]);
                     $firstname = trim($_POST["firstname"]);
                     $password1 = trim($_POST['password']);
@@ -330,26 +329,82 @@ class IndexController extends AbstractBase
         $this->addContext("family", $family);
         $this->addContext("opes", $opes);
     }
-    public function contactUs(){
-        
+    public function contactUs()
+    {
     }
-    public function myDogs(){
-       
-        if (!isset($_COOKIE["user"])){
+    public function myDogs()
+    {
+        $dogs = [];
+        if (!isset($_COOKIE["user"])) {
             $this->setTemplate("homeAktion");
+        }
+        else {
+            $json = json_decode($_COOKIE["user"],true);
+            $id = $json['id'];
+            $user = new User($json);
+            $user->setId($id);
+            $dogs = Dog::findDogByUserID($user->getId());
             
         }
-        $dogs = [];
-        if (isset($_GET['email'])) {
-            $user = User::findeNachEmail($_GET['email']);
-            $dog = Dog::findDogByUserID($user->getId());
-            $dogs[] = $dog;
-        }
         $this->addContext("dogs", $dogs);
-        
     }
-    public function editDog(){
+    public function editDog()
+    {
         $warning = "";
+        $dog = new Dog();
+        if($_GET["did"]>0){
+        $dog=Dog::finde($_GET["did"]);
+        }
+            
+        $this->addContext("did",$_GET["did"]);
+        $this->addContext("dog",$dog);
         $this->addContext("warning", $warning);
+    }
+    public function setDog()
+    {
+        if (isset($_POST["name"])) {
+
+            $json = $_COOKIE["user"];
+            $decoded = json_decode($json, true);
+            $user = new User($decoded);
+            
+            //wenn es ein neuer Hund ist, dann legen wir einen neuen an. Ansonsten updaten wir den bestehenden.
+            $neuerHund = new Dog($_POST);
+            $neuerHund->setId($_POST["did"]);
+            $neuerHund->setUId($user->getId());
+            
+            try {
+            
+            $neuerHund->speichere();
+            $dog = Dog::findDogByUserID($user->getId());
+            $this->addContext("did",$_POST["did"]);    
+            $this->addContext("dogs", $dog);
+            $this->setTemplate("myDogsAktion");
+            } catch (\Exception $e) {
+                $warning = "Somthing went wrong!";
+                $this->addContext("warning", $warning);
+                $this->setTemplate("editDogAktion");
+            
+            }
+
+        }
+    }
+
+    public function logout()
+    {
+        unset($_COOKIE["user"]);
+        $this->setTemplate("homeAktion");
+    }
+
+    public function deleteDog(){
+        //Löscht einen Hund aus der Datenbank.
+        //Für den Fall dass ein Benutzer einen Hund löschen möchte muss er sich erstmal anmelden und dann nochmal auf die Aktion klicken
+        $dog=Dog::finde($_GET["id"]);  
+        $uid = $dog->getUId();       
+        $dog->loesche();
+        $dog = Dog::findDogByUserID($uid);  
+        $this->addContext("dogs", $dog);
+        $this->setTemplate("myDogsAktion");
+
     }
 }

@@ -53,7 +53,7 @@ INSERT INTO `address` (`id`, `address`, `country`, `postcode`, `city`, `province
 CREATE TABLE `dog` (
   `id` int(11) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
-  `microchip` int(11) DEFAULT NULL,
+  `microchip` int(11) DEFAULT NULL UNIQUE,
   `breed` varchar(100) DEFAULT NULL,
   `birthdate` date DEFAULT NULL,
   `adoption_date` date DEFAULT NULL,
