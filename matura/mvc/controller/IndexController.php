@@ -381,6 +381,8 @@ class IndexController extends AbstractBase
             $this->addContext("dogs", $dog);
             $this->setTemplate("myDogsAktion");
             } catch (\Exception $e) {
+                $dog=new Dog();
+                $this->addContext("dog", $dog);
                 $warning = "Somthing went wrong!";
                 $this->addContext("warning", $warning);
                 $this->setTemplate("editDogAktion");
@@ -399,7 +401,7 @@ class IndexController extends AbstractBase
     public function deleteDog(){
         //Löscht einen Hund aus der Datenbank.
         //Für den Fall dass ein Benutzer einen Hund löschen möchte muss er sich erstmal anmelden und dann nochmal auf die Aktion klicken
-        $dog=Dog::finde($_GET["id"]);  
+        $dog=Dog::finde($_GET["did"]);  
         $uid = $dog->getUId();       
         $dog->loesche();
         $dog = Dog::findDogByUserID($uid);  
