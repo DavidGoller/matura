@@ -13,7 +13,7 @@
 
 
 <footer>
-  <div class="container-fluid px-4 py-4 bg-dark text-center">
+  <div class="container-fluid px-4 py-4 bg-primary text-center">
     <div class="center text-centered  px-2 w-75 " >
       <div class="row">
         <div class="col-lg-4 col-0 "></div>
@@ -75,7 +75,7 @@
       </div>
     </div>
   </div>
-  <div class="text-center p-3 bg-dark">
+  <div class="text-center p-3 bg-primary">
     © 2023 Copyright:
     <a class="text-white" href="https://www.happydogs.com/">www.happydogs.com</a>
   </div>

@@ -27,7 +27,7 @@
             <?php
             foreach ($dogs as $dog) {
             ?>
-                <div class="row  bg-dark my-2 mx-2  mx-lg-5 fs-5 text-light ">
+                <div class="row  bg-primary my-2 mx-2  mx-lg-5 fs-5 text-light ">
                     <div class="px-lg-5 px-3 py-4 py-lg-0 col-lg-7 col-7">
                         <p class="fw-bold fs-3  mb-1  mt-1"><?= $dog->getName(); ?></p>
                         <p class="mb-0">Microchip: <?= $dog->getMicrochip(); ?></p>

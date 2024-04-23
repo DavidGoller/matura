@@ -149,6 +149,7 @@
 }
 
 .header-dp-item {
+  font-family: var(--bs-font-sans-serif) !important;
   transition: background-color !important;
 }
 

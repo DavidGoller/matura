@@ -23,7 +23,8 @@
 <body>
 
   <div class="container my-0 my-lg-5 px-lg-5 px-1">
-
+    <iframe src="https://app.acuityscheduling.com/schedule.php?owner=32104311" title="Termin vereinbaren" width="100%" height="800" frameBorder="0"></iframe>
+    <script src="https://embed.acuityscheduling.com/js/embed.js" type="text/javascript"></script>
   </div>
 </body>
 <footer>
