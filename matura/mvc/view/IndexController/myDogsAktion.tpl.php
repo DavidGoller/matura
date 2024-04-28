@@ -36,7 +36,7 @@
                     </div>
                     <div class="px-lg-5 py-3 py-lg-5 pb-3 col-lg-5 col-5">
 
-                        <a href="index.php?aktion=CoursesDog&did=<?= $dog->getId() ?>">
+                        <a href="index.php?aktion=courses&did=<?= $dog->getId() ?>">
                             <button type="button" class="my-2  btn btn-light btn-lg ">Courses</button>
                         </a>
                         <a href="index.php?aktion=editDog&did=<?= $dog->getId() ?>">

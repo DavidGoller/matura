@@ -37,7 +37,7 @@ class Course
             . " WHERE co.bid =:bid";
         $abfrage = DB::getDB()->prepare($sql);
         $abfrage->execute(array('bid' => $bid));
-        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Course');
+        $abfrage->setFetchMode(PDO::FETCH_CLASS, 'course');
         return $abfrage->fetchAll();
     }
 

@@ -51,7 +51,7 @@ class IndexController extends AbstractBase
             }
         }
         if ($user != null) {
-            setcookie("user", $user, time() + 60 * 60* 48, "./");
+            setcookie("user", $user, time() + 60 * 60 * 48, "./");
             header("Location: index.php?aktion=home");
         }
 
@@ -337,14 +337,12 @@ class IndexController extends AbstractBase
         $dogs = [];
         if (!isset($_COOKIE["user"])) {
             $this->setTemplate("homeAktion");
-        }
-        else {
-            $json = json_decode($_COOKIE["user"],true);
+        } else {
+            $json = json_decode($_COOKIE["user"], true);
             $id = $json['id'];
             $user = new User($json);
             $user->setId($id);
             $dogs = Dog::findDogByUserID($user->getId());
-            
         }
         $this->addContext("dogs", $dogs);
     }
@@ -352,12 +350,12 @@ class IndexController extends AbstractBase
     {
         $warning = "";
         $dog = new Dog();
-        if($_GET["did"]>0){
-        $dog=Dog::finde($_GET["did"]);
+        if ($_GET["did"] > 0) {
+            $dog = Dog::finde($_GET["did"]);
         }
-            
-        $this->addContext("did",$_GET["did"]);
-        $this->addContext("dog",$dog);
+
+        $this->addContext("did", $_GET["did"]);
+        $this->addContext("dog", $dog);
         $this->addContext("warning", $warning);
     }
     public function setDog()
@@ -367,28 +365,26 @@ class IndexController extends AbstractBase
             $json = $_COOKIE["user"];
             $decoded = json_decode($json, true);
             $user = new User($decoded);
-            
+
             //wenn es ein neuer Hund ist, dann legen wir einen neuen an. Ansonsten updaten wir den bestehenden.
             $neuerHund = new Dog($_POST);
             $neuerHund->setId($_POST["did"]);
             $neuerHund->setUId($user->getId());
-            
+
             try {
-            
-            $neuerHund->speichere();
-            $dog = Dog::findDogByUserID($user->getId());
-            $this->addContext("did",$_POST["did"]);    
-            $this->addContext("dogs", $dog);
-            $this->setTemplate("myDogsAktion");
+
+                $neuerHund->speichere();
+                $dog = Dog::findDogByUserID($user->getId());
+                $this->addContext("did", $_POST["did"]);
+                $this->addContext("dogs", $dog);
+                $this->setTemplate("myDogsAktion");
             } catch (\Exception $e) {
-                $dog=new Dog();
+                $dog = new Dog();
                 $this->addContext("dog", $dog);
                 $warning = "Somthing went wrong!";
                 $this->addContext("warning", $warning);
                 $this->setTemplate("editDogAktion");
-            
             }
-
         }
     }
 
@@ -398,15 +394,46 @@ class IndexController extends AbstractBase
         $this->setTemplate("homeAktion");
     }
 
-    public function deleteDog(){
+    public function deleteDog()
+    {
         //Löscht einen Hund aus der Datenbank.
         //Für den Fall dass ein Benutzer einen Hund löschen möchte muss er sich erstmal anmelden und dann nochmal auf die Aktion klicken
-        $dog=Dog::finde($_GET["did"]);  
-        $uid = $dog->getUId();       
+        $dog = Dog::finde($_GET["did"]);
+        $uid = $dog->getUId();
         $dog->loesche();
-        $dog = Dog::findDogByUserID($uid);  
+        $dog = Dog::findDogByUserID($uid);
         $this->addContext("dogs", $dog);
         $this->setTemplate("myDogsAktion");
+    }
+    public function courses()
+    {
+        $registeres = Registered::findeByDog($_GET["did"]);
+        $this->addContext("registeres", $registeres);
+        $this->addContext("did", $_GET["did"]);
 
+    }
+
+    public function selectCourses(){
+        $boundles = Boundle::findeAlle();
+        $registeres = Registered::findeByDog($_GET["did"]);
+        $registeredBoundles = [];
+        foreach($registeres as $registerd){
+            $registeredBoundles[] = $registerd->getBid();
+        }
+        $this->addContext("registered", $registeredBoundles);
+        $this->addContext("boundles", $boundles);
+        $this->addContext("did", $_GET["did"]);
+
+    }
+    public function register(){
+        $registered = new Registered($_GET);
+        $registered->setDefaultTime();
+        $registered->speichere();
+
+        $registeres = Registered::findeByDog($_GET["did"]);
+        $this->addContext("registeres", $registeres);
+        $this->addContext("did", $_GET["did"]);
+        $this->setTemplate("coursesAktion");
+        
     }
 }

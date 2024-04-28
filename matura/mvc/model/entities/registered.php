@@ -4,12 +4,13 @@ class Registered
     use ActiveRecordable, Deletable, Findable, Persistable;
     protected static $table = "registered";
 
-    private int $id;
-    private int $bid;
-    private int $did;
-    private string $expiring_date;
-    private float $cost;
-    private int $rate;
+    private int $id = 0;
+    private int $bid = 0;
+    private int $did = 0;
+
+    private string $expiring_date = "";
+    private float $cost = 2000;
+    private int $rate = 1;
 
     //Getter&Setter
     public function setId(int $id): void
@@ -72,6 +73,9 @@ class Registered
     {
         return $this->rate;
     }
+    public function setDefaultTime(){
+        $this->setExpiringDate(date("Y-m-d H:i:s", time()+60*60*24*90));
+    }
 
     //Static
     public static function findeByDog($did)
@@ -79,7 +83,7 @@ class Registered
         $sql = "SELECT r.* FROM registered as r"
             . " WHERE r.did =:did";
         $abfrage = DB::getDB()->prepare($sql);
-        $abfrage->execute(array('bid' => $did));
+        $abfrage->execute(array('did' => $did));
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'registered');
         return $abfrage->fetchAll();
     }

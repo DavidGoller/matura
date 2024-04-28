@@ -57,7 +57,7 @@ class Boundle
         return $abfrage->fetchAll();
     }
 
-    public static function findeByRegistered(int $rid): ?self
+    public static function findeByRegistered(int $rid)
     {
         $sql = "SELECT b.* FROM registered as r"
             . " JOIN boundle as b ON b.id = r.bid"
@@ -65,7 +65,7 @@ class Boundle
         $abfrage = DB::getDB()->prepare($sql);
         $abfrage->execute(array('rid' => $rid));
         $abfrage->setFetchMode(PDO::FETCH_CLASS, 'Boundle');
-        return $abfrage->fetchAll();
+        return $abfrage->fetch();
     }
 
 
